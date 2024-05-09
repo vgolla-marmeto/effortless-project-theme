@@ -14,31 +14,22 @@
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-    <div class="section-{{ section.id }}-padding page-width">
-        <div class="custom-account-profile-tabs">
-            <account-tabs class="account-tabs-container">
-              <a href="{{ routes.account_url }}">
-              <div class="account-tabs">my profile
-              </div>
+    <div class="section-{{ section.id }}-padding page-width custom-account">
+        <div class="tabs-wrapper">
+            <a href="{{ routes.account_url }}" class="navigater">
+                <button class="tab  button">Profile</button>
               </a>
-              <a href="account/orders">
-              <div class="account-tabs active">
-                Orders
-              </div>
-            </a>
-             <a href="/account/addresses">
-              <div class="account-tabs">
-                Adress Book
-              </div>
-            </a>
-            <a href="/account/logout">
-              <div class="account-tabs">
-                Sign out
-              </div>
-            </a>
-            </account-tabs>
-          </div>
-        <div id="orders-container">
+              <a href="/account/order" class="navigater">
+                <button class="tab active button">Orders</button>
+              </a>
+              <a href="{{ routes.account_addresses_url }}" class="navigater">
+                <button class="tab  button">Address Book</button>
+              </a>
+              <a href="{{ routes.account_logout_url }}" class="navigater">
+                <button class="tab button">Sign out</button>
+              </a>
+        </div>
+        <div id="view-container">
             <div>
                 <h2>{{ 'customer.orders.title' | t }}</h2>
           
@@ -71,6 +62,12 @@
                               class="order-name"
                             >
                                 {{ order.name }}
+                              {% comment %} <a
+                                href="{{ order.customer_url }}"
+                                aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+                              > {% endcomment %}
+                                {% comment %} {{ order.customer_url }} {% endcomment %}
+                              {% comment %} </a> {% endcomment %}
                             </td>
                             <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
                               {{ order.created_at | time_tag: format: 'date' }}
@@ -153,7 +150,7 @@
 
 {% schema %}
 {
-  "name": "custom order page",
+  "name": "t:sections.main-order.name",
   "settings": [
     {
       "type": "header",
@@ -182,3 +179,10 @@
   ]
 }
 {% endschema %}
+
+
+
+
+
+
+
