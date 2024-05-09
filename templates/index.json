@@ -450,6 +450,77 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "featured_product_V7jawa": {
+      "type": "featured-product",
+      "blocks": {
+        "text_tMMRfr": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_DT3DRH": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_WVzGiB": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_cgBcWp": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_CMdUTx": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons_LQTKeB": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_dAfPX6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_tMMRfr",
+        "title_DT3DRH",
+        "price_WVzGiB",
+        "variant_picker_cgBcWp",
+        "quantity_selector_CMdUTx",
+        "buy_buttons_LQTKeB",
+        "share_dAfPX6"
+      ],
+      "settings": {
+        "product": "men-slim-fit-casual-shirt",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -463,6 +534,7 @@
     "custom_blog_NdwMxT",
     "custom_slider_with_text_kwJ7Vy",
     "custom_testimonials_7mEnJq",
-    "custom_email_signup_form_bmCytz"
+    "custom_email_signup_form_bmCytz",
+    "featured_product_V7jawa"
   ]
 }
