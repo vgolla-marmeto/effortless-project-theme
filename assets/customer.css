@@ -838,7 +838,7 @@ li[data-address] > h2 {
 
   }
   .active{
-    background: rgba(0, 91, 170, 1);
+    background: #3a837e;
     color:#fff;
 
   }

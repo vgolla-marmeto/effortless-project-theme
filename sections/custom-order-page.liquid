@@ -13,33 +13,37 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-    <div class="section-{{ section.id }}-padding page-width">
-        <div class="custom-account-profile-tabs">
-            <account-tabs class="account-tabs-container">
-              <a href="{{ routes.account_url }}">
-              <div class="account-tabs active">my profile
-              </div>
-              </a>
-              <a href="account/orders">
-              <div class="account-tabs">
-                Orders
-              </div>
-            </a>
-             <a href="/account/addresses">
-              <div class="account-tabs">
-                Adress Book
-              </div>
-            </a>
-            <a href="/account/logout">
-              <div class="account-tabs">
-                Sign out
-              </div>
-            </a>
-            </account-tabs>
-          </div>
-        <div id="orders-container">
-            <div>
+<div class="account section-{{ section.id }}-padding">
+  <div>
+    <h1 class="customer__title">My Orders</h1>
+  </div>
+
+  <div class="main-account-profile-container">
+    <div class="custom-account-profile-tabs">
+      <account-tabs class="account-tabs-container">
+        <a href="{{ routes.account_url }}">
+        <div class="account-tabs">my profile
+        </div>
+        </a>
+        <a href="pages/orders">
+        <div class="account-tabs active">
+          Orders
+        </div>
+      </a>
+       <a href="/account/addresses">
+        <div class="account-tabs">
+          Adress Book
+        </div>
+      </a>
+      <a href="/account/logout">
+        <div class="account-tabs">
+          Sign out
+        </div>
+      </a>
+      </account-tabs>
+    </div>
+    <div class="main-account--profile-container">
+       <div>
                 <h2>{{ 'customer.orders.title' | t }}</h2>
           
                 {% paginate customer.orders by 20 %}
@@ -71,6 +75,12 @@
                               class="order-name"
                             >
                                 {{ order.name }}
+                              {% comment %} <a
+                                href="{{ order.customer_url }}"
+                                aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+                              > {% endcomment %}
+                                {% comment %} {{ order.customer_url }} {% endcomment %}
+                              {% comment %} </a> {% endcomment %}
                             </td>
                             <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
                               {{ order.created_at | time_tag: format: 'date' }}
@@ -147,13 +157,13 @@
                   {%- endif -%}
                 {% endpaginate %}
               </div>
-        </div>
+      
     </div>
-</div>
+  </div>
 
 {% schema %}
 {
-  "name": "custom order page",
+  "name": "t:sections.main-order.name",
   "settings": [
     {
       "type": "header",
