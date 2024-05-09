@@ -511,7 +511,7 @@
         "product": "men-slim-fit-casual-shirt",
         "color_scheme": "",
         "secondary_background": false,
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "media_position": "left",
