@@ -15,7 +15,7 @@
   <product-card 
     class="product-card"
     data-product-handle="{{ product.handle}}" 
-    data-section-id="{{ section_id }}"
+    data-section-id="{{ section_id }}" data-displayAddtoCart="{{ displayAddtoCart }}"
   >
 
     <a href="{{ product.url }}" class="product-card__link position-relative">
@@ -131,7 +131,7 @@
           </button>
         {% endif %}
         {% if displayAddtoCart == true %}
-          <button class="addto-cart-button-style">
+          <button class="addto-cart-button-style" id="addToCartButton">
              Add to button
           </button>
 

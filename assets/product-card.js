@@ -4,6 +4,12 @@ class ProductCard extends HTMLElement {
 
     this.productHandle = this.dataset.productHandle;
     this.sectionId = this.dataset.sectionId;
+    this.buttonPresent = this.dataset.displayAddtoCart
+    if(this.buttonPresent){
+      this.addToCart = this.querySelector("#addToCartButton")
+      this.addToCart.addEventListener("click", this.updateCart)
+    }
+   
     if (this.querySelector("script")) {
       this.variantData = JSON.parse(this.querySelector("script").textContent);
     }
@@ -28,6 +34,10 @@ class ProductCard extends HTMLElement {
     console.log("current variant", this.currentVariant);
     this.getUpdatedCard();
   }
+  updateCart(){
+    console.log("clicked")
+  }
+  
 
   getUpdatedCard() {
   //   const url = `/products/${this.productHandle}?variant=${this.currentVariant.id}&section_id=custom-product-card`;
