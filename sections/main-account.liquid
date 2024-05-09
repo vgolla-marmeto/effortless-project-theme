@@ -12,7 +12,6 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-
 {%- endstyle -%}
 
 <div class="account section-{{ section.id }}-padding">
@@ -24,44 +23,47 @@
     <div class="custom-account-profile-tabs">
       <account-tabs class="account-tabs-container">
         <a href="{{ routes.account_url }}">
-        <div class="account-tabs active">my profile
-        </div>
+          <div class="account-tabs active">my profile</div>
         </a>
-        <a href="account/orders">
-        <div class="account-tabs">
-          Orders
-        </div>
-      </a>
-       <a href="/account/addresses">
-        <div class="account-tabs">
-          Adress Book
-        </div>
-      </a>
-      <a href="/account/logout">
-        <div class="account-tabs">
-          Sign out
-        </div>
-      </a>
+        <a href="pages/orders">
+          <div class="account-tabs">Orders</div>
+        </a>
+        <a href="/account/addresses">
+          <div class="account-tabs">Adress Book</div>
+        </a>
+        <a href="/account/logout">
+          <div class="account-tabs">Sign out</div>
+        </a>
       </account-tabs>
     </div>
     <div class="main-account--profile-container">
-      <p class="main-account--verfication-message">Hello {{ customer.last_name }} {{ customer.first_name }}. Not {{ customer.last_name }} {{ customer.first_name }}? <a href="/account/logout"><span class="signout">Sign out</span></a></p>
-    <p class="main-account--verfication-message">Account Details</p>
+      <p class="main-account--verfication-message">
+        Hello {{ customer.last_name }}
+        {{ customer.first_name }}. Not {{ customer.last_name }}
+        {{ customer.first_name }}? <a href="/account/logout"><span class="signout">Sign out</span></a>
+      </p>
+      <p class="main-account--verfication-message">Account Details</p>
       <table>
         <tbody>
           <tr>
-            <td ><span class="main-account--table-heading">Name</span></td>
-            <td ><span class="main-account--table-value"></span>{{ customer.first_name }} {{ customer.last_name }}</td>
+            <td><span class="main-account--table-heading">Name</span></td>
+            <td>
+              <span class="main-account--table-value"></span>{{ customer.first_name }}
+              {{ customer.last_name }}
+            </td>
           </tr>
           <tr>
             <td><span class="main-account--table-heading">Email</span></td>
             <td class="main-account--table-value">{{ customer.email }}</td>
           </tr>
           <tr>
-            <td ><span class="main-account--table-heading">Address</span></td>
+            <td><span class="main-account--table-heading">Address</span></td>
             <td class="main-account--table-value">
-              {{ customer.default_address.address1 }}<br>
-              {{ customer.default_address.city }}, {{ customer.default_address.province_code }} {{ customer.default_address.zip }}<br>
+              {{ customer.default_address.address1 -}}
+              <br>
+              {{ customer.default_address.city }}, {{ customer.default_address.province_code }}
+              {{ customer.default_address.zip -}}
+              <br>
               {{ customer.default_address.country }}
             </td>
           </tr>
@@ -69,11 +71,9 @@
       </table>
     </div>
   </div>
-  
-  
 
-  
-    {% comment %} <div>
+  {% comment %}
+    <div>
       <h2>{{ 'customer.orders.title' | t }}</h2>
 
       {% paginate customer.orders by 20 %}
@@ -183,10 +183,11 @@
           {%- endif -%}
         {%- endif -%}
       {% endpaginate %}
-    </div> {% endcomment %}
-    
+    </div>
+  {% endcomment %}
 
-    {% comment %} <div>
+  {% comment %}
+    <div>
       <h2>{{ 'customer.account.details' | t }}</h2>
 
       {{ customer.default_address | format_address }}
@@ -194,7 +195,8 @@
       <a href="{{ routes.account_addresses_url }}">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
-    </div> {% endcomment %}
+    </div>
+  {% endcomment %}
 </div>
 
 {% schema %}
