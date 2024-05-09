@@ -61,6 +61,15 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
+    <label for="AccountType">
+     Account Type
+    </label>
+    <div class="field" >
+      <select name="customer[tags]" id="AccountType" >
+        <option value="B2b">B2B</option>
+        <option value="Customer">Customer</option>
+      </select>
+    </div>
     <label for="RegisterForm-FirstName" class="customer-login--labelElements">
       {{ 'customer.register.first_name' | t }}
     </label>

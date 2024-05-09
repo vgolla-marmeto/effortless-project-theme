@@ -24,7 +24,7 @@
     }
   }
 {%- endstyle -%}
-
+<script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
 <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -80,7 +80,7 @@
               {%- if product.selected_or_first_available_variant.featured_media != null -%}
                 {%- assign media = product.selected_or_first_available_variant.featured_media -%}
                 <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
-                  {% render 'product-thumbnail',
+                  {% render 'custom-product',
                     media: media,
                     position: 'featured',
                     loop: section.settings.enable_video_looping,
