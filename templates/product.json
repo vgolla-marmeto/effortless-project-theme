@@ -56,7 +56,7 @@
       "settings": {
         "enable_sticky_info": false,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
@@ -121,7 +121,7 @@
         "background_Color": "#000",
         "card_background": "#ffffff",
         "heading": "Reviews",
-        "heading_color": "#ffffff",
+        "heading_color": "#fff",
         "heading_size": "h1",
         "show_customer_name": true,
         "auto_play": true,
