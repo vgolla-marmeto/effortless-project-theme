@@ -1,0 +1,19 @@
+.customer-login--labelElements{
+    text-align:left;
+    display:block;
+    font-size:12px;
+  }
+  .customer-login--terms-conditions-styles{
+    font-weight:bold;
+    font-size:12px;
+    text-align:left;
+  }
+  .customer-login--terms-text{
+    color:#3a837e;
+  }
+  .customer-login--terms-conditions{
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+
+  }

@@ -1,0 +1,59 @@
+{% style %}
+
+    
+.custom-product-cards{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+}
+
+
+{% endstyle %}
+
+<div class="practice-best-seller-section page-width">
+    <h1> {{section.settings.heading  }}</h1>
+    <div class="custom-product-cards">
+    {% for product in section.settings.Product_list %}
+      {% render 'practice-product-card', product:product %}
+     {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Practice best seller",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "heading",
+        "default": "Best Sellers"
+      },
+      {
+        "type": "product_list",
+        "id": "Product_list",
+        "label": "Product List"
+      }
+    ],
+    "presets": [
+      {
+        "name": "practice best sellers"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,117 @@
+{{ 'featured-in.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+.featured--{{ section.id }}{
+      padding-top:{{ section.settings.padding_top  }}px;
+      padding-bottom:{{ section.settings.padding_bottom }}px;
+}
+@media screen and (min-width:749px){
+      .featured--{{ section.id }}{
+          padding-top:{{ section.settings.padding_top | divided_by:2 }}px;
+          padding-bottom:{{ section.settings.padding_bottom | divided_by:2}}px;
+      }
+  }
+
+{% endstyle %}
+
+
+<div class="featuredIn-section  featured--{{ section.id }}">
+  <div class="heading" data-aos="fade-left">
+    {% if section.settings.rich_text != blank %}
+      <h1>{{ section.settings.rich_text }}</h1>
+    {% endif %}
+  </div>
+  <div class="slider">
+    <div class="splide" id="featured_in">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for block in section.blocks %}
+            <li class="splide__slide">
+              <div class="slide-content">
+                <img
+                  src="{{ block.settings.image | image_url }}"
+                  alt="Slide Image"
+                  height="68"
+                  width="150">
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#featured_in', {
+      pagination: true,
+      perPage: 3,
+      gap: '60px',
+      breakpoints: {
+        425: {
+          perPage: 1,
+          gap: '20px',
+        },
+        768: {
+          perPage: 3,
+        },
+      },
+    }).mount();
+  });
+</script>
+{% schema %}
+  {
+    "name": "Featured In",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "rich_text",
+        "label": "Rich Text"
+      },
+      {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+    }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "custom Featured In"
+      }
+    ]
+  }
+{% endschema %}
