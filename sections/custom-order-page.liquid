@@ -13,24 +13,37 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-    <div class="section-{{ section.id }}-padding page-width custom-account">
-        <div class="tabs-wrapper">
-            <a href="{{ routes.account_url }}" class="navigater">
-                <button class="tab  button">Profile</button>
-              </a>
-              <a href="/account/order" class="navigater">
-                <button class="tab active button">Orders</button>
-              </a>
-              <a href="{{ routes.account_addresses_url }}" class="navigater">
-                <button class="tab  button">Address Book</button>
-              </a>
-              <a href="{{ routes.account_logout_url }}" class="navigater">
-                <button class="tab button">Sign out</button>
-              </a>
+<div class="account section-{{ section.id }}-padding">
+  <div>
+    <h1 class="customer__title">My Orders</h1>
+  </div>
+
+  <div class="main-account-profile-container">
+    <div class="custom-account-profile-tabs">
+      <account-tabs class="account-tabs-container">
+        <a href="{{ routes.account_url }}">
+        <div class="account-tabs active">my profile
         </div>
-        <div id="view-container">
-            <div>
+        </a>
+        <a href="account/orders">
+        <div class="account-tabs">
+          Orders
+        </div>
+      </a>
+       <a href="/account/addresses">
+        <div class="account-tabs">
+          Adress Book
+        </div>
+      </a>
+      <a href="/account/logout">
+        <div class="account-tabs">
+          Sign out
+        </div>
+      </a>
+      </account-tabs>
+    </div>
+    <div class="main-account--profile-container">
+       <div>
                 <h2>{{ 'customer.orders.title' | t }}</h2>
           
                 {% paginate customer.orders by 20 %}
@@ -144,9 +157,9 @@
                   {%- endif -%}
                 {% endpaginate %}
               </div>
-        </div>
+      
     </div>
-</div>
+  </div>
 
 {% schema %}
 {
