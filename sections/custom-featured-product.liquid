@@ -1,0 +1,102 @@
+<script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
+<script src="{{ 'product-deatil-display.js' | asset_url }}" defer></script>
+
+
+{% style %}
+.custom-featured-product--{{ section.id }}{
+    padding-top:{{ section.settings.padding_top | divided_by:2 }}px;
+    padding-bottom:{{ section.settings.padding_bottom | divided_by:2 }}px;
+  }
+@media screen and (min-width: 750px) {
+    .custom-featured-product--{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+.custom-featured-product--heading{
+    text-align:{{ section.settings.heading_position }}
+}
+
+{% endstyle %}
+
+<div class="custom-featured-product--{{ section.id }} page-width">
+    <h1 class="custom-featured-product--heading">Featured Product</h1>
+    <div id="custom-featured-product" data-product-url={{section.settings.product.url  }}>
+    </div>
+
+
+</div>
+
+
+{% schema %}
+{
+ "name": "Custom Featured Prodcuct",
+ "tag": "section",
+ "class": "section",
+ "settings": [
+    {
+     "type": "header",
+     "content": "Select a product"
+    
+    },
+    {
+        "type": "product",
+        "id": "product",
+        "label": "Pick a Product"
+    },
+    {
+        "type": "select",
+        "id": "heading_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Heading Position"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 30
+      }
+
+ ],
+ "presets": [
+   {
+   "name": "Custom featured"
+
+}
+    
+
+ ]
+
+}
+
+
+
+{% endschema %}

@@ -10,10 +10,7 @@
             <ul class="splide__list">
               {% for image in product.images %}
                 <li class="splide__slide thumbnail_image_list">
-                  <img
-                    src="{{image.src | image_url}}"
-                    alt="{{product.title}}"
-                   height="auto" width="auto" />
+               {% render 'responsive-picture',  desktopImage:image %}
                 </li>
               {% endfor %}
             </ul>
@@ -26,9 +23,7 @@
             <ul class="splide__list">
               {% for image in product.images %}
                 <li class="splide__slide">
-                  <img
-                    src="{{image.src |  image_url}}"
-                    alt="{{product.title}}"   height="auto" width="auto"/>
+                  {% render 'responsive-picture',  desktopImage:image %}
                 </li>
               {% endfor %}
             </ul>
