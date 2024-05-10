@@ -32,7 +32,7 @@ deleteButton.addEventListener("click", function(){
           })
           .then(response=>
           {
-              cart.renderContents(response);
+              cart.renderContent(response);
               console.log(response)
           })
           .catch((error) => {
