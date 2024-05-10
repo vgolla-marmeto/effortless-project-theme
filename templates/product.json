@@ -42,6 +42,20 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+<<<<<<< HEAD
+=======
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "bundles_Y3CWdi": {
+          "type": "bundles",
+          "settings": {
+            "bundle_heading": "Frequently bought together"
+          }
+>>>>>>> b3417f266ab0dd9989522dcdc2d64976546794c1
         }
       },
       "block_order": [
@@ -49,9 +63,15 @@
         "price",
         "variant_picker",
         "quantity_selector",
+<<<<<<< HEAD
         "description",
         "bundles_xkW8Rf",
         "buy_buttons"
+=======
+        "buy_buttons",
+        "description",
+        "bundles_Y3CWdi"
+>>>>>>> b3417f266ab0dd9989522dcdc2d64976546794c1
       ],
       "settings": {
         "enable_sticky_info": false,
