@@ -48,6 +48,9 @@
       padding: 18px 5rem;
     }
   } 
+  .product-bundle__grid-item product-bundles{
+    max-width:400px;
+  }
 
 
   {%- endstyle -%}
@@ -255,28 +258,44 @@
                     </variant-offer>
                {% endif %} 
                 </div>
+                {% when 'bundles' %}
+                  <div class="product-bundle-wrapper">
+                        <div class="product-bundle">
+                            <h2 class="product-bundle__heading">{{ section.settings.bundle_heading }}</h2>
+                            <div class="product-bundle-container">
+                                <product-bundle class="product-bundle__grid " data-section-id="{{ section.id }}">
+                            {% for product in product.metafields.custom.bundles.value %}
+                                <div class="product-bundle__grid-item product-bundles">
+                                {% render 'product-card',
+                                product: product,
+                                section_id: section.id
+                                %}
+                                <input class="bundle-checkbox" data-product-id="{{ product.selected_or_first_available_variant.id }}"
+                                value="{{  product.selected_or_first_available_variant.id }}"
+                                type="checkbox"
+                                >
+                                {% if forloop.index != forloop.length %}
+                                    <span class="addicon">
+                                    +
+                                    </span>
+                                {%  else %}
+                                    <span class="addicon">
+                                        =
+                                    </span>
+                                {% endif %}
+                                </div>
+                            {% endfor %}
+                            <div id="bundle__atc"
+                            class="button custom-atc__hover-button"
+                            data-product-id="{{ product.id }}"
+                            data-variant-id="{{ product.selected_variant.id }}"
+                            data-section-id="{{ section.id }}"
+                            >Add to cart</div>
+                            </product-bundle>
+                        </div>
+                    </div>
+                </div>
               {%- when 'pincode-checker' -%}
-               
-                {% comment %} 
-                <div class="pincode-container">
-                  <pincode-checker>
-                      <input type="text" id="pincode" placeholder="Enter PIN Code">
-                      <button id="pincodeButton">Validate</button>
-                      <div id="result-container"></div>
-                      <div class="toasts"></div>
-                      <div class="master-toast-notification hide-toast">
-                          <div class="toast-content">
-                              <div class="toast-icon">
-                                  <i class="fa-solid"></i>
-                              </div>
-                              <div class="toast-msg"></div>
-                          </div>
-                          <div class="toast-progress">
-                              <div class="toast-progress-bar"></div>
-                          </div>
-                      </div>
-                  </pincode-checker>
-              </div> {% endcomment %}
               <pincode-checker>
                 <div class="pincode-checker">
                   <div class="field pincode-checker__field">
@@ -288,14 +307,14 @@
                 <div class="pincode-message text-body is-hidden" name="pincode-message"></div>
             </pincode-checker>
 
-                    {%- when 'addtocart' -%}
+                    {% comment %} {%- when 'addtocart' -%}
                         <div id="bundle__atc"
                           class="button custom-atc__hover-button"
                           data-product-id="{{ product.id }}"
                           data-variant-id="{{ product.selected_variant.id }}"
                           data-section-id="{{ section.id }}">
                           Add to cart 4 items 
-                        </div>
+                        </div> {% endcomment %}
         
               {%- when 'description' -%}
                 {%- if product.description != blank -%}

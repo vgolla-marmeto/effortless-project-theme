@@ -36,6 +36,26 @@
           "type": "description",
           "settings": {
           }
+        },
+        "pincode_checker_nYNaQD": {
+          "type": "pincode-checker",
+          "settings": {
+            "pincode_title": ""
+          }
+        },
+        "inventory_Gma9Li": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "bundles_xkW8Rf": {
+          "type": "bundles",
+          "settings": {
+            "bundle_heading": "Frequently bought together"
+          }
         }
       },
       "block_order": [
@@ -44,7 +64,10 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "pincode_checker_nYNaQD",
+        "inventory_Gma9Li",
+        "bundles_xkW8Rf"
       ],
       "settings": {
         "enable_sticky_info": false,

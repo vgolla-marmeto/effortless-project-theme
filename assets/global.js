@@ -1430,6 +1430,9 @@ class variantOffer extends HTMLElement {
 }
 customElements.define("variant-offer", variantOffer);
 
+
+// bundle product 
+
 class ProductBundle extends HTMLElement {
   constructor() {
       super();
@@ -1441,9 +1444,7 @@ class ProductBundle extends HTMLElement {
       this.products = []
       this.querySelectorAll('.bundle-checkbox').forEach((element) => {
           if (element.checked == true) {
-              console.log(element);
               this.products.push(element.value)
-              console.log(this.products);
           }
       })
       const handleClick = () => {
