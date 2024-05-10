@@ -1323,91 +1323,7 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
-// class pincodeChecker extends HTMLElement {
-//   constructor() {
-//       super();
-//       this.pincodeJson = {};
-//       this.pincodeInput = this.querySelector("#pincode");
-//       this.pincodeButton = this.querySelector('#pincodeButton');
-//       this.sheetKey = '1h0kscMJ6SHc6iScepk-jOZPDvfjhc5ffuxV0Sv75cQ4';
-//       this.apiKey = 'AIzaSyB_QbDtY6TNB2bdZoz4u3y3YDpeuB7BlME';
-//       this.result = this.querySelector('#result-container');
-//       this.toastCounter = 1;
-//       this.getPincodeJson();
-//       this.sheetUrl = "https://sheets.googleapis.com/v4/spreadsheets/" + this.sheetKey + "/values/Sheet1?key=" + this.apiKey;
-//       this.pincodeButton.addEventListener('click', () => {
-//           this.validateCode();
-//       });
-//   }
 
-//   async validateCode() {
-//       const pincode = this.pincodeInput.value.trim();
-//       const pinRegex = /^[1-9][0-9]{5}$/;
-
-//       if (!pinRegex.test(pincode)) {
-//           this.displayToastNotification("Please enter a valid 6-digit PIN code.", "fa-triangle-exclamation", "#f39c12", "slide-in-fade-out");
-//           return;
-//       }
-
-//       const apiUrl = `https://api.postalpincode.in/pincode/${pincode}`;
-//       try {
-//           const response = await fetch(apiUrl);
-//           const data = await response.json();
-//           if (response.status === 200) {
-//               if (data[0].Status === "Success") {
-//                   this.displayToastNotification("Your location is deliverable!", "fa-check", "#27AE60", "slide-in-fade-out");
-//               } else {
-//                   this.displayToastNotification("Delivery unavailable at your location", "fa-info", "#2980b9", "slide-in-fade-out");
-//               }
-//           } else {
-//               this.displayToastNotification("Delivery unavailable at your location", "fa-info", "fa-info", "slide-in-fade-out");
-//           }
-//       } catch (error) {
-//           console.error("Error:", error);
-//           this.displayToastNotification("Error validating PIN Code. Please try again later.", "fa-xmark", "#c0392b", "slide-in-fade-out");
-//       }
-//   }
-//   getPincodeJson() {
-//     if (sessionStorage.getItem("pincodeData") === null) {
-//       console.log(this.sheetUrl)
-//       fetch(this.sheetUrl)
-//       .then(function(response) {
-//         return response.json();
-//       })
-//       .then(function(data) {
-//         let sheetData = JSON.stringify(data.values);
-//         console.log(sheetData)
-//         sessionStorage.setItem("pincodeData", sheetData);        
-//       })
-//       .catch(function(error) {
-//         console.error('Error:', error);
-//       });
-//     }
-//   }
-
-//   displayToastNotification(msg, icon, icon_color, animation) {
-//       var masterToast = this.querySelector('.master-toast-notification');
-//       if (!masterToast) {
-//           console.error("Master toast notification element not found.");
-//           return;
-//       }
-
-//       var class_name = 'toast-' + this.toastCounter; 
-//       var new_node = masterToast.cloneNode(true);
-//       new_node.classList.remove('hide-toast');
-//       new_node.classList.remove('master-toast-notification');
-//       new_node.classList.add(class_name, 'toast-notification', animation);
-//       new_node.querySelector('.toast-msg').innerText = msg;
-//       new_node.querySelector('.toast-icon i').className = 'fa-solid ' + icon;
-//       new_node.querySelector('.toast-icon').style.backgroundColor = icon_color;
-//       this.querySelector('.toasts').appendChild(new_node);
-//       setTimeout(() => {
-//           new_node.remove();
-//       }, 3800);
-//       this.toastCounter++; 
-//   }
-// }
-// customElements.define("pincode-checker", pincodeChecker);
 
 
 class variantOffer extends HTMLElement {
@@ -1438,6 +1354,9 @@ class ProductBundle extends HTMLElement {
       super();
       this.addEventListener('click', this.bundleAddtocart)
       this.sectionId = this.dataset.sectionId
+      this.mainId = this.dataset.mainId
+      this.quantity = document.querySelector(".quantity__input").value 
+      console.log(this.quantity)
   }
   bundleAddtocart() {
       console.log(this.querySelectorAll('.bundle-checkbox'));
@@ -1454,14 +1373,20 @@ class ProductBundle extends HTMLElement {
   }
   addToCart(variants) {
       let cart=document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-      let formData = {
-          "items": variants.map((variantId) =>
+      let data = {
+        "id": this.mainId,
+        "quantity": 1
+      }
+      let suggestions = variants.map((variantId) =>
           (
               {
                   "id": variantId,
-                  "quantity": 1,
+                  "quantity": 1
               }
-          )),
+          ))
+        
+      let formData = {
+          "items":[data, ...suggestions] ,
           "sections": cart.getSectionsToRender().map((section) => section.id)
       }
       console.log(formData);

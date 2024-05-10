@@ -4,20 +4,33 @@ if (!customElements.get('product-form')) {
     class ProductForm extends HTMLElement {
       constructor() {
         super();
-
-        this.form = this.querySelector('form');
+        this.form = this.querySelector('.form');
+        console.log(this.form)
         this.form.querySelector('[name=id]').disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
         this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         this.submitButton = this.querySelector('[type="submit"]');
+
         if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
 
         this.hideErrors = this.dataset.hideErrors === 'true';
       }
 
+      bundleAddtocart() {
+        this.products = []
+        document.querySelectorAll('.bundle-checkbox').forEach((element) => {
+          console.log(element.checked )
+            if (element.checked == true) {
+                console.log(element);
+                this.products.push(element.value)
+                console.log(this.products);
+            }
+        })
+        return this.products
+    }
+
       onSubmitHandler(evt) {
         evt.preventDefault();
-        debugger
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
@@ -26,68 +39,40 @@ if (!customElements.get('product-form')) {
         this.submitButton.classList.add('loading');
         this.querySelector('.loading__spinner').classList.remove('hidden');
 
-        const config = fetchConfig('javascript');
-        config.headers['X-Requested-With'] = 'XMLHttpRequest';
-        delete config.headers['Content-Type'];
+        const selected = this.bundleAddtocart()
 
-        const formData = new FormData(this.form);
-        if (this.cart) {
-          formData.append(
-            'sections',
-            this.cart.getSectionsToRender().map((section) => section.id)
-          );
-          formData.append('sections_url', window.location.pathname);
-          this.cart.setActiveElement(document.activeElement);
-        }
-        config.body = formData;
+        const checkedItems = selected.map((variantId) =>
+          (
+              {
+                  "id": variantId,
+                  "quantity": 1
+              }
+          ))
 
-        fetch(`${routes.cart_add_url}`, config)
+          
+        const formData = {
+          "items" : [
+            {
+              id:this.form.querySelector("input[name='id']").value,
+              quantity:document.querySelector(`#Quantity-${this.dataset.sectionId}`).value
+            }, ...checkedItems
+          ],
+          "sections": this.cart.getSectionsToRender().map((section) => section.id)
+        };
+        
+        
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData),
+          })
           .then((response) => response.json())
           .then((response) => {
-            if (response.status) {
-              publish(PUB_SUB_EVENTS.cartError, {
-                source: 'product-form',
-                productVariantId: formData.get('id'),
-                errors: response.errors || response.description,
-                message: response.message,
-              });
-              this.handleErrorMessage(response.description);
-
-              const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
-              if (!soldOutMessage) return;
-              this.submitButton.setAttribute('aria-disabled', true);
-              this.submitButton.querySelector('span').classList.add('hidden');
-              soldOutMessage.classList.remove('hidden');
-              this.error = true;
-              return;
-            } else if (!this.cart) {
-              window.location = window.routes.cart_url;
-              return;
-            }
-
-            if (!this.error)
-              publish(PUB_SUB_EVENTS.cartUpdate, {
-                source: 'product-form',
-                productVariantId: formData.get('id'),
-                cartData: response,
-              });
-            this.error = false;
-            const quickAddModal = this.closest('quick-add-modal');
-            if (quickAddModal) {
-              document.body.addEventListener(
-                'modalClosed',
-                () => {
-                  setTimeout(() => {
-                    this.cart.renderContents(response);
-                  });
-                },
-                { once: true }
-              );
-              quickAddModal.hide(true);
-            } else {
-              this.cart.renderContents(response);
-            }
-          })
+            this.cart.renderContents(response);
+          }
+        )
           .catch((e) => {
             console.error(e);
           })

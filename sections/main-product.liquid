@@ -48,10 +48,22 @@
       padding: 18px 5rem;
     }
   } 
-  .product-bundle__grid-item product-bundles{
+  .product-bundle-wrapper{
+    max-height:400px;
     max-width:400px;
+    overflow-x:scroll;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px 0px;
   }
-
+ .product-bundle__heading{
+  font-size:20px;
+ }
+ .product-bundle-container{
+  max-width:300px;
+  max-height:250px;
+ }
 
   {%- endstyle -%}
 <script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
@@ -118,28 +130,6 @@
                       </p>
                     </a>
                   </div>
-                {% comment %} {% assign inventory=product.selected_or_first_available_variant.inventory_quantity %}
-                {% assign upperlimit=settings.upperLimitValue %}
-                {% if upperlimit==blank or upperlimit<inventory %}
-                  {% assign upperlimit=200 %}
-                {% endif %}   {% endcomment %}
-               
-                
-              {% comment %} {%- when 'progress-bar' -%}
-                {{upperlimit }}
-                {% assign widthpercent=inventory | times : 100 | divided_by:upperlimit  %}
-                {{ inventory }}
-                <div id="progress-bar">
-                {% if inventory!=0 %}
-                <div class="progress-bar">
-                  <span class="in-stock-bar" 
-                    style="width:{{ widthpercent }}% background-color:red;  
-                    {% if inventory >10 %} background:green; {% else %}background:red;{% endif %}"></span>  
-                  <span class="not-in-stock-bar"></span>  
-                </div>
-                {% endif %}
-              </div> {% endcomment %}
-
               <div id="custominventorystatus">
                 {% if product.selected_or_first_available_variant.inventory_quantity == 0 %}
                   <p class="avaliable">Preorder</p>
@@ -236,35 +226,13 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
-              {%- when 'variant-offer' -%}
-                  <div id="coupen--{{section.id }}">
-                   {% if product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value !=blank %}
-                    <variant-offer class="coupon">
-                      <div class="left">
-                        <div>{{ block.settings.offer_title }}</div>
-                      </div>
-                      <div class="center">
-                        <div>
-                          <h2 class="coupen-code" id="offer_value-{{ section.id }}" data-code='{{  product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}'>
-                            {{ product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}
-                          </h2>
-                          <h3>Coupon</h3>
-                          <button id="copy-coupen">Copy</button>
-                        </div>
-                      </div>
-                      <div class="right">
-                        <div>87878521112</div>
-                      </div>
-                    </variant-offer>
-               {% endif %} 
-                </div>
                 {% when 'bundles' %}
                   <div class="product-bundle-wrapper">
+                    <h2 class="product-bundle__heading">{{ section.settings.bundle_heading }}</h2>
                         <div class="product-bundle">
-                            <h2 class="product-bundle__heading">{{ section.settings.bundle_heading }}</h2>
                             <div class="product-bundle-container">
-                                <product-bundle class="product-bundle__grid " data-section-id="{{ section.id }}">
-                            {% for product in product.metafields.custom.bundles.value %}
+                                <product-bundle class="product-bundle__grid " data-section-id="{{ section.id }}" data-main-id ="{{product.selected_or_first_available_variant.id }}">
+                               {% for product in product.metafields.custom.bundles.value %}
                                 <div class="product-bundle__grid-item product-bundles">
                                 {% render 'product-card',
                                 product: product,
@@ -295,6 +263,29 @@
                         </div>
                     </div>
                 </div>
+              {%- when 'variant-offer' -%}
+                  <div id="coupen--{{section.id }}">
+                   {% if product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value !=blank %}
+                    <variant-offer class="coupon">
+                      <div class="left">
+                        <div>{{ block.settings.offer_title }}</div>
+                      </div>
+                      <div class="center">
+                        <div>
+                          <h2 class="coupen-code" id="offer_value-{{ section.id }}" data-code='{{  product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}'>
+                            {{ product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}
+                          </h2>
+                          <h3>Coupon</h3>
+                          <button id="copy-coupen">Copy</button>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div>87878521112</div>
+                      </div>
+                    </variant-offer>
+               {% endif %} 
+                </div>
+              
               {%- when 'pincode-checker' -%}
               <pincode-checker>
                 <div class="pincode-checker">
@@ -307,14 +298,6 @@
                 <div class="pincode-message text-body is-hidden" name="pincode-message"></div>
             </pincode-checker>
 
-                    {% comment %} {%- when 'addtocart' -%}
-                        <div id="bundle__atc"
-                          class="button custom-atc__hover-button"
-                          data-product-id="{{ product.id }}"
-                          data-variant-id="{{ product.selected_variant.id }}"
-                          data-section-id="{{ section.id }}">
-                          Add to cart 4 items 
-                        </div> {% endcomment %}
         
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
