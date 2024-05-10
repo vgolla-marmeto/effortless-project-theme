@@ -17,7 +17,7 @@ class CartItems extends HTMLElement {
     super();
     this.lineItemStatusElement =
       document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
-    this.BundleRemove =  document.getElementById("bundleDelete")
+    this.BundleRemove =  this.querySelector("#bundleDelete")
     this.BundleRemove.addEventListener("click", ()=> {
           this.UpdateCartItems()
     })
