@@ -36,6 +36,12 @@
           "type": "description",
           "settings": {
           }
+        },
+        "bundles_Y3CWdi": {
+          "type": "bundles",
+          "settings": {
+            "bundle_heading": "Frequently bought together"
+          }
         }
       },
       "block_order": [
@@ -44,7 +50,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "bundles_Y3CWdi"
       ],
       "settings": {
         "enable_sticky_info": false,
