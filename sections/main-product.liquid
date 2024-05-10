@@ -242,23 +242,8 @@
                                 value="{{  product.selected_or_first_available_variant.id }}"
                                 type="checkbox"
                                 >
-                                {% if forloop.index != forloop.length %}
-                                    <span class="addicon">
-                                    +
-                                    </span>
-                                {%  else %}
-                                    <span class="addicon">
-                                        =
-                                    </span>
-                                {% endif %}
                                 </div>
                             {% endfor %}
-                            {% comment %} <div id="bundle__atc"
-                            class="button custom-atc__hover-button"
-                            data-product-id="{{ product.id }}"
-                            data-variant-id="{{ product.selected_variant.id }}"
-                            data-section-id="{{ section.id }}"
-                            >Add to cart</div> {% endcomment %}
                             </product-bundle>
                         </div>
                     </div>
