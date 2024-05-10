@@ -25,7 +25,7 @@ deleteButton.addEventListener("click", function(){
           headers: {
           'Content-Type': 'application/json'
           },
-          body: JSON.stringify({updates,"sections": cartItems.getSectionsToRender().map((section) => section.id)
+          body: JSON.stringify({updates,"sections": getSectionsToRender().map((section) => section.id)
         }),
           })
           .then(response => {
@@ -41,7 +41,7 @@ deleteButton.addEventListener("click", function(){
           });
       })
 
-  function    getSectionsToRender() {
+    function    getSectionsToRender() {
         return [
           {
             id: 'main-cart-items',
