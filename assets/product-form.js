@@ -49,8 +49,8 @@ if (!customElements.get('product-form')) {
               }
           ))
 
-        if(checkedItems != blank){
-          const formData = {
+        if(checkedItems !== undefined){
+          let formData = {
             "items" : [
               {
                 id:this.form.querySelector("input[name='id']").value,
@@ -64,7 +64,7 @@ if (!customElements.get('product-form')) {
           };
 
         }else{
-          const formData = {
+          let formData = {
             "items" : [
               {
                 id:this.form.querySelector("input[name='id']").value,
