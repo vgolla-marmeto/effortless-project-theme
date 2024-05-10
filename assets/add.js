@@ -18,12 +18,14 @@ deleteButton.addEventListener("click", function(){
         BundleItems.forEach(item => {
           updates[item] = 0;
         });
+        console.log(updates)
         fetch(window.Shopify.routes.root + 'cart/update.js', {
           method: 'POST',
           headers: {
           'Content-Type': 'application/json'
           },
-          body: JSON.stringify({updates}),
+          body: JSON.stringify({updates,"sections": cart.getSectionsToRender().map((section) => section.id)
+        }),
           })
           .then(response => {
           return response.json();
