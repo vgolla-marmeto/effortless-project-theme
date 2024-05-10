@@ -25,8 +25,7 @@ deleteButton.addEventListener("click", function(){
           headers: {
           'Content-Type': 'application/json'
           },
-          body: JSON.stringify({updates,"sections": getSectionsToRender().map((section) => section.id)
-        }),
+          body: JSON.stringify({updates}),
           })
           .then(response => {
           return response.json();
@@ -40,28 +39,3 @@ deleteButton.addEventListener("click", function(){
           console.error('Error:', error);
           });
       })
-
-    function    getSectionsToRender() {
-        return [
-          {
-            id: 'main-cart-items',
-            section: document.getElementById('main-cart-items').dataset.id,
-            selector: '.js-contents',
-          },
-          {
-            id: 'cart-icon-bubble',
-            section: 'cart-icon-bubble',
-            selector: '.shopify-section',
-          },
-          {
-            id: 'cart-live-region-text',
-            section: 'cart-live-region-text',
-            selector: '.shopify-section',
-          },
-          {
-            id: 'main-cart-footer',
-            section: document.getElementById('main-cart-footer').dataset.id,
-            selector: '.js-contents',
-          },
-        ];
-      }
