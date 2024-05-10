@@ -48,9 +48,9 @@ if (!customElements.get('product-form')) {
                   }
               }
           ))
-
+        let formData
         if(checkedItems !== undefined){
-          let formData = {
+           formData = {
             "items" : [
               {
                 id:this.form.querySelector("input[name='id']").value,
@@ -64,7 +64,7 @@ if (!customElements.get('product-form')) {
           };
 
         }else{
-          let formData = {
+           formData = {
             "items" : [
               {
                 id:this.form.querySelector("input[name='id']").value,
