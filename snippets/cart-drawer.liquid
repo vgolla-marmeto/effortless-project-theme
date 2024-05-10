@@ -534,6 +534,9 @@
   </div>
 
 </cart-drawer>
+<div id="cartLineItems" style="display:none;">
+  {{ cart.items | json }}
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

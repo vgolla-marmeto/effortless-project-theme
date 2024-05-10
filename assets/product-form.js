@@ -19,11 +19,8 @@ if (!customElements.get('product-form')) {
       bundleAddtocart() {
         this.products = []
         document.querySelectorAll('.bundle-checkbox').forEach((element) => {
-          console.log(element.checked )
             if (element.checked == true) {
-                console.log(element);
                 this.products.push(element.value)
-                console.log(this.products);
             }
         })
         return this.products
