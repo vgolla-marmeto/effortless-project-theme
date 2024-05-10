@@ -4,16 +4,21 @@ deleteButton.addEventListener("click", function(){
         
         let divContainer = JSON.parse(document.querySelector("#cartLineItems").textContent);
         console.log(divContainer)
+        let cart=document.querySelector('cart-items');
+        console.log(cart)
         let cartVariants = []
-        for(item of divContainer){
+        for(let item of divContainer){
           cartVariants.push({"id":item.variant_id,"property":item.properties})
         }
+        console.log(cartVariants)
         let withBundels=[]
-        for(variant of cartVariants){
-          if(variant.property.bundel){
+        for(let variant of cartVariants){
+            console.log(variant.property.bundle)
+          if(variant.property.bundle){
             withBundels.push(variant.id)
           }
         }
+        console.log(withBundels)
         let updates = {}
         withBundels.forEach(item => {
           updates[item] = 0;
@@ -23,8 +28,7 @@ deleteButton.addEventListener("click", function(){
           headers: {
           'Content-Type': 'application/json'
           },
-          body: JSON.stringify({updates,"sections": cart.getSectionsToRender().map((section) => section.id)
-        }),
+          body: JSON.stringify({updates}),
           })
           .then(response => {
           return response.json();

@@ -44,7 +44,7 @@ if (!customElements.get('product-form')) {
                   "id": variantId,
                   "quantity": 1,
                   "properties": {
-                    "bundle" : "true"
+                    "bundle" : true
                   }
               }
           ))
