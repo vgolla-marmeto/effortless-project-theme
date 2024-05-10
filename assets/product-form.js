@@ -48,38 +48,15 @@ if (!customElements.get('product-form')) {
                   }
               }
           ))
-        let formData
-        if(checkedItems !== undefined){
-           formData = {
-            "items" : [
-              {
-                id:this.form.querySelector("input[name='id']").value,
-                quantity:document.querySelector(`#Quantity-${this.dataset.sectionId}`).value,
-                "properties": {
-                  "bundle": true
-                }
-              }, ...checkedItems
-            ],
-            "sections": this.cart.getSectionsToRender().map((section) => section.id)
-          };
-
-        }else{
-           formData = {
-            "items" : [
-              {
-                id:this.form.querySelector("input[name='id']").value,
-                quantity:document.querySelector(`#Quantity-${this.dataset.sectionId}`).value,
-                "properties": {
-                  "bundle": flase
-                }
-              }, ...checkedItems
-            ],
-            "sections": this.cart.getSectionsToRender().map((section) => section.id)
-          };
-
-
-        }
-        
+        const formData = {
+          "items" : [
+            {
+              id:this.form.querySelector("input[name='id']").value,
+              quantity:document.querySelector(`#Quantity-${this.dataset.sectionId}`).value
+            }, ...checkedItems
+          ],
+          "sections": this.cart.getSectionsToRender().map((section) => section.id)
+        };
         
         
         fetch(window.Shopify.routes.root + 'cart/add.js', {
