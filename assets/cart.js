@@ -17,10 +17,6 @@ class CartItems extends HTMLElement {
     super();
     this.lineItemStatusElement =
       document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
-    this.deleteBundle = document.getElementById("bundleDelete")
-    this.deleteBundle.addEventListener("click", ()=> {
-      this.removeBundles();
-    });
 
     const debouncedOnChange = debounce((event) => {
       this.onChange(event);
@@ -181,18 +177,6 @@ class CartItems extends HTMLElement {
       .finally(() => {
         this.disableLoading(line);
       });
-  }
-
-  removeBundles() {
-    const bundleData = JSON.parse(localStorage.getItem("bundleData"));
-
-    // Remove bundled items from the cart
-    bundleData.forEach(bundle => {
-      this.updateQuantity(bundle.id, 0);
-    });
-
-    // Update localStorage
-    localStorage.removeItem("bundleData");
   }
 
   updateLiveRegions(line, message) {
