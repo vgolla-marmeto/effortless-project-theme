@@ -3,7 +3,7 @@ let deleteButton = document.getElementById("bundleDelete")
 deleteButton.addEventListener("click", function(){
         
         let divContainer = JSON.parse(document.querySelector("#cartLineItems").textContent);
-        let cart=document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        console.log(divContainer)
         let cartVariants = []
         for(item of divContainer){
           cartVariants.push({"id":item.variant_id,"property":item.properties})
