@@ -233,15 +233,15 @@
                             <div class="product-bundle-container">
                                 <product-bundle class="product-bundle__grid " data-section-id="{{ section.id }}" data-main-id ="{{product.selected_or_first_available_variant.id }}">
                                {% for product in product.metafields.custom.bundles.value %}
+                                <input class="bundle-checkbox" data-product-id="{{ product.selected_or_first_available_variant.id }}"
+                                  value="{{  product.selected_or_first_available_variant.id }}"
+                                  type="checkbox"
+                                  >
                                 <div class="product-bundle__grid-item product-bundles">
                                 {% render 'product-card',
                                 product: product,
                                 section_id: section.id
                                 %}
-                                <input class="bundle-checkbox" data-product-id="{{ product.selected_or_first_available_variant.id }}"
-                                value="{{  product.selected_or_first_available_variant.id }}"
-                                type="checkbox"
-                                >
                                 </div>
                             {% endfor %}
                             </product-bundle>
