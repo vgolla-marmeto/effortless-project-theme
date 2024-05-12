@@ -245,7 +245,7 @@
                                       type="checkbox" />
                                        <img src="{{ product.featured_image| image_url}}" height="200" width="auto">
                                        <p class="product-item-title">{{product.title }}</p>
-                                       <p>{{product.price }}</p>
+                                       <p>{{product.price |money_with_currency }}</p>
                                     </div>
                                 {% endfor %}
                             </div>
