@@ -48,19 +48,21 @@
       padding: 18px 5rem;
     }
   } 
-  .product-bundle--item-container {
-    height:90%;
-    width:300px;
-    position:relative;
-  }
+  
   .product-bundle--container{
-    max-height:400px;
+    height:400px;
+    max-width:100%;
     display:flex;
     align-items:center;
     gap:20px;
-    overflow-x:scroll;
+    overflow:scroll;
     scrollbar-width: none; 
     
+  }
+  .product-bundle--item-container {
+    height:80%;
+    width:300px;
+    position:relative;
   }
   .bundle-checkbox{
     position:absolute;
@@ -70,25 +72,6 @@
     width:30px;
   }
   
-  {% comment %}.product-bundle-wrapper{  
-    max-height:400px;
-    max-width:400px;
-    overflow-x:scroll;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px 0px;
-  }
- .product-bundle__heading{
-  font-size:20px;
- }
- .product-bundle{
-  display:flex;
- }
- .product-bundle-container{
-  max-width:300px;
-  max-height:250px;
- } {% endcomment %}
 
   {%- endstyle -%}
 <script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
@@ -260,7 +243,7 @@
                                     <input class="bundle-checkbox" data-product-id="{{ product.selected_or_first_available_variant.id }}"
                                       value="{{  product.selected_or_first_available_variant.id }}"
                                       type="checkbox" />
-                                       <img src="{{ product.featured_image| image_url}}" height="200" width="100%">
+                                       <img src="{{ product.featured_image| image_url}}" height="200" width="auto">
                                        <p class="product-item-title">{{product.title }}</p>
                                        <p>{{product.price }}</p>
                                     </div>
