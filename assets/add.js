@@ -4,13 +4,14 @@ deleteButton.addEventListener("click", function(){
         
         let lineItemContainer = JSON.parse(document.querySelector("#cartLineItems").textContent);
         let cart=document.querySelector('cart-items');
+        console.log(cart)
         let cartVariants = []
         for(let item of lineItemContainer){
           cartVariants.push({"id":item.variant_id,"property":item.properties})
         }
         let BundleItems=[]
         for(let variant of cartVariants){
-          if(variant.property.bundle){
+          if(variant.property.bundleItem){
             BundleItems.push(variant.id)
           }
         }
@@ -18,7 +19,6 @@ deleteButton.addEventListener("click", function(){
         BundleItems.forEach(item => {
           updates[item] = 0;
         });
-        console.log(updates)
         fetch(window.Shopify.routes.root + 'cart/update.js', {
           method: 'POST',
           headers: {

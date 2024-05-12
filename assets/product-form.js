@@ -36,15 +36,15 @@ if (!customElements.get('product-form')) {
         this.submitButton.classList.add('loading');
         this.querySelector('.loading__spinner').classList.remove('hidden');
 
-        const selected = this.bundleAddtocart()
+        const selectedITems = this.bundleAddtocart()
 
-        const checkedItems = selected.map((variantId) =>
+        const checkedItems = selectedITems.map((variantId) =>
           (
               {
                   "id": variantId,
                   "quantity": 1,
                   "properties": {
-                    "bundle" : true
+                    "bundleItem" : true
                   }
               }
           ))
