@@ -8,6 +8,7 @@ deleteButton.addEventListener("click", function(){
         let cartVariants = []
         for(let item of lineItemContainer){
           cartVariants.push({"id":item.variant_id,"property":item.properties})
+          console.log(item)
         }
         let BundleItems=[]
         for(let variant of cartVariants){
