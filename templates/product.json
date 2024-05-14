@@ -56,9 +56,9 @@
       "settings": {
         "enable_sticky_info": false,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "media_size": "large",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "lightbox",
@@ -67,6 +67,12 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "wizaah_recently_viewed_products_TGCx7U": {
+      "type": "wizaah-recently-viewed-products",
+      "settings": {
+        "title": "Recently viewed"
       }
     },
     "related-products": {
@@ -137,6 +143,7 @@
   },
   "order": [
     "main",
+    "wizaah_recently_viewed_products_TGCx7U",
     "related-products",
     "custom_reviews_XafRde"
   ]
