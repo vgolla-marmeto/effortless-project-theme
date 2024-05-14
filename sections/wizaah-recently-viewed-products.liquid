@@ -2,8 +2,9 @@
 {
   "productId": {{ product.id | json }}
 }
-{%- endcapture -%}
 
+{%- endcapture -%}
+  {{ section_settings }}
 <script src="{{ 'wizaah-recently-viewed-products.js' | asset_url }}" defer="defer"></script>
 
 <div 
