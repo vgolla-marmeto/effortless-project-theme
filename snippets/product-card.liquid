@@ -45,13 +45,9 @@
     </a>
   
     <div class="product-card__info">
-      {% comment %} product title {% endcomment %}
-      <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>     
-
-{% comment %} product price {% endcomment %}
-
+     <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a> 
 <div class="product-card__prices">
-  {% if product.price_varies %}
+  {% comment %} {% if product.price_varies %}
     <span class="product-card__price-amount"> {{ product.price_min | money_with_currency }}</span>
   {% else %}
     <span class="product-card__price-amount">  {{ product.price | money_with_currency }}</span>   
@@ -59,9 +55,9 @@
 
   {% if current_variant.compare_at_price > current_variant.price %}
   <s class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-  {% endif %}
+  {% endif %} {% endcomment %}
 
-<div class="custom--best-seller-slide--content">
+{% comment %} <div class="custom--best-seller-slide--content">
   {% if product.tags != blank %}
     <p class="productviewtags">{{ product.tags }}</p>
   {% endif %}
@@ -69,7 +65,7 @@
   {% if product.tags contains 'Sale' %}
     <p class="productviewtags1">{{ product.tags }}</p>
   {% endif %}
-</div>
+</div> {% endcomment %}
 </div>
 
 {% comment %} product color swatch {% endcomment %}
@@ -80,6 +76,33 @@
               {% if product.options_with_values %}
                   <div class="product-card__options">
                       {% for product_option in product.options_with_values %}
+                        {% if product_option.name == "Size" %}
+                          <div class="product-card__option">
+                              <ul class="product-card__list">
+                                {% for option_value in product_option.values %}
+                                  {% assign isOptionOutOfStock = false %}
+                                  
+                                  {% if current_variant.inventory_quantity == 0 and product_option.selected_value == option_value %}
+                                      {% assign isOptionOutOfStock = true %}
+                                  {% endif %}
+                                  
+                                  <li data-value={{ option_value }} {% if isOptionOutOfStock %} out-of-stock{% endif %}" style="{% if product_option.selected_value == option_value %}{% endif %}">
+                                      <input 
+                                          id="{{ current_variant.id | append: option_value }}"
+                                          type="radio" 
+                                          name="option-{{ product_option.name | handleize }}" 
+                                          value="{{ option_value }}"
+                                          {% if product_option.selected_value == option_value %}checked{% endif %}
+                                      >
+                                      <label data-value="{{ option_value }}" for="{{ current_variant.id | append: option_value }}">{{ option_value }}</label> 
+                                      {% if isOptionOutOfStock %}
+                                          <div class="product-variant-options__cross-line"></div>
+                                      {% endif %}
+                                  </li>
+                              {% endfor %}
+                              </ul>                                  
+                          </div>
+                      {% endif %}
                           {% if product_option.name == "Color" %}
                               <div class="product-card__option">
                                   <ul class="product-card__list">
@@ -110,11 +133,11 @@
                       {% endfor %}
                   </div>
               {% endif %}
-
+            
           
           {% endform %}
         </div>
-        {% if product.type != blank %}
+        {% comment %} {% if product.type != blank %}
           <button class="productinfotags">
             {% if product.type == 'Quick Dry' %}
               <img src="https://effortless-theme-demo.myshopify.com/cdn/shop/files/sparkle_20x20.webp?v=1668642168" class="quickdryimages" alt="Quick Dry" width="" height="">
@@ -130,17 +153,12 @@
         </div>
           </button>
         {% endif %}
-        {% if displayAddtoCart == true %}
-          <button class="addto-cart-button-style" id="addToCartButton">
-             Add to button
-          </button>
+          {% endcomment %}
 
-        {% endif %}
+          <button class="addto-cart-button-style" id="addToCartButton-{{ product.id }}" data-varaint = {{ current_variant.id }} >
+            Add to Cart
+         </button>
 
-       
-
-
-        
 
        </div>
   

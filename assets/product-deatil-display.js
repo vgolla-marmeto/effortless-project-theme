@@ -1,12 +1,13 @@
 let productUrl = document.getElementById("custom-featured-product").dataset.productUrl
-    fetch(`${productUrl}/?section_id=template--22573094011154__main`)
+console.log(`${productUrl}?section_id=template--22732303794450__main`)
+    fetch(`${productUrl}?section_id=template--22732303794450__main`)
     .then((response) => response.text())
           .then((responseText) => {
     const html = new DOMParser().parseFromString(responseText,'text/html');
-    
+    console.log(html)
               const container = document.getElementById("custom-featured-product");
-            const content = html.querySelector("#MainProduct-template--22573094011154__main")
-            console.log(content);
+              console.log(container)
+            const content = html.querySelector(".main-product-page")
             container.innerHTML = content.innerHTML;
     
     })

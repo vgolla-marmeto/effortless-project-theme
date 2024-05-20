@@ -5,7 +5,6 @@ class HeaderProductCard extends HTMLElement {
       this.productHandle = this.dataset.productHandle;
       this.sectionId = this.dataset.sectionId;
       this.addToCart = this.querySelector("#addToCartButton")
-      console.log(this.addToCart, this)
       this.addEventListener("submit", (event)=>{
         event.preventDefault();
         this.variantId= this.dataset.variantId

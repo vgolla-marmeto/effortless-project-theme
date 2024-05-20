@@ -5,7 +5,6 @@ if (!customElements.get('product-form')) {
       constructor() {
         super();
         this.form = this.querySelector('.form');
-        console.log(this.form)
         this.form.querySelector('[name=id]').disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
         this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
@@ -69,6 +68,7 @@ if (!customElements.get('product-form')) {
           .then((response) => response.json())
           .then((response) => {
             this.cart.renderContents(response);
+            // console.log("hhkjk");
           }
         )
           .catch((e) => {
