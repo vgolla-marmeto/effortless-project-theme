@@ -13,6 +13,20 @@
           "settings": {
           }
         },
+        "inventory_3zj4Nk": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "progress_bar_nMm4gm": {
+          "type": "progress-bar",
+          "settings": {
+            "progress-bar-title": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -32,6 +46,7 @@
         },
         "bundles_xkW8Rf": {
           "type": "bundles",
+          "disabled": true,
           "settings": {
             "bundle_heading": "Frequently bought together"
           }
@@ -47,6 +62,8 @@
       "block_order": [
         "title",
         "price",
+        "inventory_3zj4Nk",
+        "progress_bar_nMm4gm",
         "variant_picker",
         "quantity_selector",
         "description",

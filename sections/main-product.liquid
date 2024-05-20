@@ -4,19 +4,20 @@
   </div>
 </div>
 <section
-  id="MainProduct-{{ section.id }}" class="main-product-page"
+  id="MainProduct-{{ section.id }}"
+  class="main-product-page"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
->  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  {{'custom-product-card.css'| asset_url | stylesheet_tag }}
+>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  {{ 'custom-product-card.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
- 
+
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
     {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
@@ -27,54 +28,77 @@
   {%- endif -%}
 
   {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
-
-    @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      }
+
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
+      .main-collection-banner--breadcrumbs{
+      background-color: #f1f2f4;
+      padding:10px;
+      padding: 15px 1.5rem;
+    }
+    @media and (min-width:768px){
+      .main-collection-banner--breadcrumbs{
+        padding: 18px 5rem;
       }
     }
-    .main-collection-banner--breadcrumbs{
-    background-color: #f1f2f4;
-    padding:10px;
-    padding: 15px 1.5rem;
-  }
-  @media and (min-width:768px){
-    .main-collection-banner--breadcrumbs{
-      padding: 18px 5rem;
-    }
-  } 
-  
-  .product-bundle--container{
-    height:400px;
-    max-width:100%;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    overflow:scroll;
-    scrollbar-width: none; 
-    
-  }
-  .product-bundle--item-container {
-    height:80%;
-    width:300px;
-    position:relative;
-  }
-  .bundle-checkbox{
-    position:absolute;
-    top:10;
-    right:0;
-    height:30px;
-    width:30px;
-  }
-  
 
+    .product-bundle--container{
+      height:400px;
+      max-width:100%;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      overflow:scroll;
+      scrollbar-width: none;
+
+    }
+    .product-bundle--item-container {
+      height:80%;
+      width:300px;
+      position:relative;
+    }
+    .bundle-checkbox{
+      position:absolute;
+      top:10;
+      right:0;
+      height:30px;
+      width:30px;
+    }
+    .progress-bar{
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    margin-bottom:20px;
+    }
+    .in-stock-bar{
+    display: block;
+    height: 4px;
+    transition: all ease-in-out 3s;
+    border-radius: 20px;
+    }
+    .stack-alert{
+      display:flex;
+      align-items:center;
+      gap:0.8rem;
+    }
+    .in-stock{
+      color:green;
+    }
+    .less-in-stock{
+      color:red;
+    }
   {%- endstyle -%}
-<script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
+  <script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -108,8 +132,6 @@
       onload="this.media='all'"
     >
   {%- endif -%}
-  
-  
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
@@ -130,25 +152,26 @@
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
-                {%- when 'title' -%}
-                  <div class="product-title" {{ block.shopify_attributes }}>
-                    <a href="{{ product.url }}" class="product-title">
-                      <p>
-                        {{ product.title | escape }}
-                      </p>
-                    </a>
-                  </div>
-              <div id="custominventorystatus">
-                {% if product.selected_or_first_available_variant.inventory_quantity == 0 %}
-                  <p class="avaliable">Preorder</p>
-                  {% elsif  product.selected_or_first_available_variant.inventory_quantity > 10 %}
-                  <p class="avaliable">Available</p>
+              {%- when 'title' -%}
+                <div class="product-title" {{ block.shopify_attributes }}>
+                  <a href="{{ product.url }}" class="product-title">
+                    <p>
+                      {{ product.title | escape }}
+                    </p>
+                  </a>
+                </div>
+                {% comment %} <div id="custominventorystatus">
+                  {% if product.selected_or_first_available_variant.inventory_quantity == 0 %}
+                    <p class="avaliable">Preorder</p>
+                  {% elsif product.selected_or_first_available_variant.inventory_quantity > 10 %}
+                    <p class="avaliable">Available</p>
 
-                   {%elsif  product.selected_or_first_available_variant.inventory_quantity < 10 %}
-                    <p class="not-avaliable">Only {{ product.selected_or_first_available_variant.inventory_quantity }} units in stock.</p>
-                  
-                  {%endif %}
-              </div>
+                  {% elsif product.selected_or_first_available_variant.inventory_quantity < 10 %}
+                    <p class="not-avaliable">
+                      Only {{ product.selected_or_first_available_variant.inventory_quantity }} units in stock.
+                    </p>
+                  {% endif %}
+                </div> {% endcomment %}
 
               {%- when 'price' -%}
                 <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -186,15 +209,15 @@
                   id="Inventory-{{ section.id }}"
                   role="status"
                 >
+                  <span class="stack-alert {% if product.selected_or_first_available_variant.inventory_quantity<=10 %} less-in-stock {% elsif product.selected_or_first_available_variant.inventory_quantity>10 %}in-stock {% else %} not-in-stock{% endif %}">
                   {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
                     {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
                       {%- if product.selected_or_first_available_variant.inventory_quantity
                           <= block.settings.inventory_threshold
                       -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
-                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
-                        </svg>
+                      <svg fill="#ff0000" width="15" height="15" viewBox="0 0 15 15" version="1.1" id="circle" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"/>
+                      </svg>
                         {%- if block.settings.show_inventory_quantity -%}
                           {{-
                             'products.product.inventory_low_stock_show_count'
@@ -204,10 +227,9 @@
                           {{- 'products.product.inventory_low_stock' | t -}}
                         {%- endif -%}
                       {%- else -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                        </svg>
+                      <svg fill="#008a00" width="12" height="12" viewBox="0 0 15 15" version="1.1" id="circle" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"/>
+                      </svg>
                         {%- if block.settings.show_inventory_quantity -%}
                           {{-
                             'products.product.inventory_in_stock_show_count'
@@ -225,41 +247,69 @@
                         </svg>
                         {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
                       {%- else -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
-                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
-                        </svg>
+                      <svg fill="gray" width="12" height="12" viewBox="0 0 15 15" version="1.1" id="circle" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"/>
+                      </svg>
                         {{- 'products.product.inventory_out_of_stock' | t -}}
                       {%- endif -%}
                     {%- endif -%}
                   {%- endif -%}
+                  </span>
                 </p>
-                {% when 'bundles' %}
-                  <div class="product-bundle-wrapper">
-                    <h2 class="product-bundle__heading">{{ section.settings.bundle_heading }}</h2>
-                            <div class="product-bundle--container" data-section-id="{{ section.id }}" data-main-id ="{{product.selected_or_first_available_variant.id }}">
-                               {% for product in product.metafields.custom.bundles.value %}
-                                  <div class="product-bundle--item-container">
-                                    <input class="bundle-checkbox" data-product-id="{{ product.selected_or_first_available_variant.id }}"
-                                      value="{{  product.selected_or_first_available_variant.id }}"
-                                      type="checkbox" />
-                                       <img src="{{ product.featured_image| image_url}}" height="200" width="auto">
-                                       <p class="product-item-title">{{product.title }}</p>
-                                       <p>{{product.price |money_with_currency }}</p>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                    </div>
+                 
+              {%- when 'progress-bar' -%}
+                {% assign inventory=product.selected_or_first_available_variant.inventory_quantity %}
+                {% assign upperlimit=settings.upperLimitValue %}
+                {% assign widthpercent = inventory | times : 100 | divided_by:upperlimit  %}
+                <div id="progress-bar">
+                {% if inventory!=0 %}
+                <div class="progress-bar">
+                  <span class="in-stock-bar" 
+                    style="width:{{ widthpercent }}%;  
+                    {% if inventory >10 %} background:green; {% else %}background:red;{% endif %}"></span>  
+                  <span class="not-in-stock-bar"></span>  
+                </div>
+                {% endif %}
+              </div>
+
+              {% when 'bundles' %}
+                <div class="product-bundle-wrapper">
+                  <h2 class="product-bundle__heading">{{ section.settings.bundle_heading }}</h2>
+                  <div
+                    class="product-bundle--container"
+                    data-section-id="{{ section.id }}"
+                    data-main-id="{{product.selected_or_first_available_variant.id }}"
+                  >
+                    {% for product in product.metafields.custom.bundles.value %}
+                      <div class="product-bundle--item-container">
+                        <input
+                          class="bundle-checkbox"
+                          data-product-id="{{ product.selected_or_first_available_variant.id }}"
+                          value="{{  product.selected_or_first_available_variant.id }}"
+                          type="checkbox"
+                        >
+                        <img src="{{ product.featured_image| image_url}}" height="200" width="auto">
+                        <p class="product-item-title">{{ product.title }}</p>
+                        <p>{{ product.price | money_with_currency }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
               {%- when 'variant-offer' -%}
-                  <div id="coupen--{{section.id }}">
-                   {% if product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value !=blank %}
+                <div id="coupen--{{section.id }}">
+                  {% if product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value != blank
+                  %}
                     <variant-offer class="coupon">
                       <div class="left">
                         <div>{{ block.settings.offer_title }}</div>
                       </div>
                       <div class="center">
                         <div>
-                          <h2 class="coupen-code" id="offer_value-{{ section.id }}" data-code='{{  product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}'>
+                          <h2
+                            class="coupen-code"
+                            id="offer_value-{{ section.id }}"
+                            data-code="{{  product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}"
+                          >
                             {{ product.selected_or_first_available_variant.metafields.custom.variant_coupon_code.value }}
                           </h2>
                           <h3>Coupon</h3>
@@ -270,22 +320,29 @@
                         <div>87878521112</div>
                       </div>
                     </variant-offer>
-               {% endif %} 
+                  {% endif %}
                 </div>
-              
-              {%- when 'pincode-checker' -%}
-              <pincode-checker>
-                <div class="pincode-checker">
-                  <div class="field pincode-checker__field">
-                    <input class="field__input" id="PincodeInput" type="text" name="pincode-input" placeholder="Eg. 560012">
-                    <label class="field__label" for="PincodeInput">Enter Pincode</label>
-                  </div>
-                  <button type="button" class="button pincode-checker__button" name="pincode-submit">Check</button>
-                </div>
-                <div class="pincode-message text-body is-hidden" name="pincode-message"></div>
-            </pincode-checker>
 
-        
+               
+
+              {%- when 'pincode-checker' -%}
+                <pincode-checker>
+                  <div class="pincode-checker">
+                    <div class="field pincode-checker__field">
+                      <input
+                        class="field__input"
+                        id="PincodeInput"
+                        type="text"
+                        name="pincode-input"
+                        placeholder="Eg. 560012"
+                      >
+                      <label class="field__label" for="PincodeInput">Enter Pincode</label>
+                    </div>
+                    <button type="button" class="button pincode-checker__button" name="pincode-submit">Check</button>
+                  </div>
+                  <div class="pincode-message text-body is-hidden" name="pincode-message"></div>
+                </pincode-checker>
+
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -345,7 +402,7 @@
                       >
                     </span>
                   </label>
-                  
+
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                       <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -895,11 +952,11 @@
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var giftCardCheckbox = document.getElementById('giftCardCheckbox');
     var giftCardDiv = document.getElementById('giftCardDiv');
 
-    giftCardCheckbox.addEventListener('change', function() {
+    giftCardCheckbox.addEventListener('change', function () {
       if (giftCardCheckbox.checked) {
         giftCardDiv.style.display = 'block';
       } else {
@@ -908,7 +965,6 @@
     });
   });
 </script>
-  
 
 {% schema %}
 {
@@ -956,21 +1012,33 @@
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
     },
-     {
+    {
       "type": "variant-offer",
       "name": "variant offer",
-       "settings": [
-         {
-           "type": "text",
-           "id": "offer_title",
-           "label": "Offer title"
-         }
-       ],
+      "settings": [
+        {
+          "type": "text",
+          "id": "offer_title",
+          "label": "Offer title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "progress-bar",
+      "name":"Progress bar",
+      "settings": [
+        {
+          "type":"text",
+          "id": "progress-bar-title",
+          "label":"progress-bar title"
+        }
+      ],
       "limit": 1
     },
     {
       "type": "addtocart",
-      "name":"addtocart",
+      "name": "addtocart",
       "limit": 1,
       "settings": [
         {
@@ -984,7 +1052,7 @@
 
     {
       "type": "bundles",
-      "name":"Product Bundles",
+      "name": "Product Bundles",
       "limit": 1,
       "settings": [
         {
@@ -998,27 +1066,13 @@
     {
       "type": "pincode-checker",
       "name": "Pincode checker",
-       "settings": [
+      "settings": [
         {
           "type": "text",
           "id": "pincode_title",
           "label": "pincode title"
         }
-  
-       ],
-      "limit": 1
-    },
-    {
-      "type": "progress-bar",
-      "name": "Progress bar",
-       "settings": [
-        {
-          "type": "text",
-          "id": "progress_title",
-          "label": "progress title"
-        }
-  
-       ],
+      ],
       "limit": 1
     },
     {
@@ -2508,5 +2562,4 @@
     }
   ]
 }
-{% endschema %} 
-
+{% endschema %}

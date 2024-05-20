@@ -1482,7 +1482,7 @@
         "step": 10,
         "id": "upperLimitValue",
         "label": "Upper limit value",
-        "default": 200
+        "default": 100
       }
     ]
   }

@@ -1139,7 +1139,12 @@ class VariantSelects extends HTMLElement {
           `Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
          
-        // changing value 
+        // changing status bar
+        const StatusBarDestination = document.getElementById("progress-bar")
+        const StatusBarSource = html.getElementById("progress-bar")
+        if (StatusBarDestination && StatusBarSource){
+          StatusBarDestination.innerHTML = StatusBarSource.innerHTML
+        }
         
         // changing value 
         const offerDestination = document.getElementById(`offer_value-${this.dataset.section}`);
