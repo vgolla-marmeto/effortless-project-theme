@@ -47,7 +47,7 @@
     <div class="product-card__info">
      <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a> 
 <div class="product-card__prices">
-  {% comment %} {% if product.price_varies %}
+  {% if product.price_varies %}
     <span class="product-card__price-amount"> {{ product.price_min | money_with_currency }}</span>
   {% else %}
     <span class="product-card__price-amount">  {{ product.price | money_with_currency }}</span>   
@@ -55,7 +55,7 @@
 
   {% if current_variant.compare_at_price > current_variant.price %}
   <s class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-  {% endif %} {% endcomment %}
+  {% endif %} 
 
 {% comment %} <div class="custom--best-seller-slide--content">
   {% if product.tags != blank %}
