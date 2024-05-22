@@ -7,6 +7,6 @@ console.log(`${productUrl}?section_id=template--22732303794450__main`)
     const html = new DOMParser().parseFromString(responseText["main-product"],'text/html');
            console.log(html.body)
               const container = document.getElementById("custom-featured-product")
-            container.innerHTML = html.innerHTML;
+            container.innerHTML = html.body.innerHTML;
     
     })
