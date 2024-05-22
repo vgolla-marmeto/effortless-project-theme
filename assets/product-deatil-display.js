@@ -5,9 +5,7 @@ console.log(`${productUrl}?section_id=template--22732303794450__main`)
           .then((responseText) => {
             console.log(responseText)
     const html = new DOMParser().parseFromString(responseText["main-product"],'text/html');
-              const container = document.getElementById("custom-featured-product");
-            const content = html.querySelector(".main-product-page")
-            console.log(content)
-            container.innerHTML = content.innerHTML;
+              const container = document.getElementById("custom-featured-product")
+            container.innerHTML = html.innerHTML;
     
     })
