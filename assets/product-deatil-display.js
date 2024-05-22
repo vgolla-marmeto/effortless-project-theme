@@ -5,8 +5,8 @@ console.log(`${productUrl}?section_id=template--22732303794450__main`)
           .then((responseText) => {
             console.log(responseText)
     const html = new DOMParser().parseFromString(responseText["main-product"],'text/html');
-           console.log(html.body)
+           console.log(html.querySelector('.shopify-section'))
               const container = document.getElementById("custom-featured-product")
-            container.innerHTML = html.body.innerHTML;
+            container.innerHTML = html.querySelector('.shopify-section').innerHTML;
     
     })
