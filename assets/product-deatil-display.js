@@ -1,6 +1,6 @@
 let productUrl = document.getElementById("custom-featured-product").dataset.productUrl
 console.log(`${productUrl}?section_id=template--22732303794450__main`)
-let mainProductId = document.querySelector('.main-product-page').dataset.section
+let mainProductId = document.querySelector('.main-product-page')
 console.log(mainProductId)
 console.log({mainProductId})
     fetch(`${productUrl}?sections=main-product`)
