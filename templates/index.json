@@ -454,7 +454,7 @@
     "custom_featured_product_zNmRmr": {
       "type": "custom-featured-product",
       "settings": {
-        "product": "",
+        "product": "men-slim-fit-casual-shirt",
         "heading_position": "left",
         "padding_top": 30,
         "padding_bottom": 30
