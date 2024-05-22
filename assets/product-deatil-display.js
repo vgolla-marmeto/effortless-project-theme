@@ -11,6 +11,7 @@ console.log({mainProductId})
               const container = document.getElementById("custom-featured-product");
               console.log(container)
             const content = html.querySelector(".main-product-page")
+            console.log(content)
             container.innerHTML = content.innerHTML;
     
     })
