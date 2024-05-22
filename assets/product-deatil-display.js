@@ -1,6 +1,6 @@
 let productUrl = document.getElementById("custom-featured-product").dataset.productUrl
 console.log(`${productUrl}?section_id=template--22732303794450__main`)
-    fetch(`${productUrl}?section_id=main-product`)
+    fetch(`${productUrl}?sections=main-product`)
     .then((response) => response.json())
           .then((responseText) => {
             console.log(responseText)
