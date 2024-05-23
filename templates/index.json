@@ -517,6 +517,15 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "custom_featured_product_A3xaw6": {
+      "type": "custom-featured-product",
+      "settings": {
+        "product": "men-slim-fit-casual-shirt",
+        "heading_position": "left",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -532,6 +541,7 @@
     "custom_testimonials_7mEnJq",
     "custom_email_signup_form_bmCytz",
     "custom_featured_product_UzNdqM",
-    "featured_product_MnfGKP"
+    "featured_product_MnfGKP",
+    "custom_featured_product_A3xaw6"
   ]
 }
