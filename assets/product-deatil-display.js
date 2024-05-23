@@ -4,8 +4,29 @@ fetch(productUrl).then((response) => response.text())
             const responseHTML = new DOMParser().parseFromString(responseText, 'text/html');
             const productElement = responseHTML.querySelector('section[id^="MainProduct-"]');
             const  container = document.getElementById("custom-featured-product")
+            console.log(container , productUrl, productElement)
             if(productElement && container ){
-                  container.innerHTML == productElement.innerHTML
+                  container.innerHTML = productElement.innerHTML
+                  if (window.Shopify && Shopify.PaymentButton) {
+                        Shopify.PaymentButton.init();
+                      }
+                      
+                  if (window.ProductModel) window.ProductModel.loadShopifyXR();
+                   container.querySelectorAll('script').forEach((oldScriptTag) => {
+                        const newScriptTag = document.createElement('script');
+                        Array.from(oldScriptTag.attributes).forEach((attribute) => {
+                          newScriptTag.setAttribute(attribute.name, attribute.value);
+                        });
+                        newScriptTag.appendChild(document.createTextNode(oldScriptTag.innerHTML));
+                        oldScriptTag.parentNode.replaceChild(newScriptTag, oldScriptTag);
+                      });
+                      const variantPicker = container.querySelector('variant-selects');
+                      if (!variantPicker){
+                        return;
+                      }
+                     variantPicker.setAttribute('data-update-url', 'false');
+            
+                  
             }
           })
 

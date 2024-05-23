@@ -8,7 +8,6 @@
   class="main-product-page section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  {{ 'custom-product-card.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
@@ -97,6 +96,7 @@
     }
   {%- endstyle -%}
   <script src="{{'custom-splide-component.js' |  asset_url}}" defer></script>
+{{ "custom-product-card.css" | asset_url | stylesheet_tag }}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -824,7 +824,7 @@
       {%- if section.settings.media_position == 'right' -%}
         {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
         <div class="grid__item product__media-wrapper small-hide">
-          {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
+          {% render 'custom-product', variant_images: variant_images, is_duplicate: true %}
         </div>
       {%- endif -%}
     </div>

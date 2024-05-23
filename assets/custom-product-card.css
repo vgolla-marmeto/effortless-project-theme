@@ -64,7 +64,7 @@
 }
 
 .product-image-slider--main-image img {
-  height: 100%;
+  max-height: 500px;
   width: 100%;
  
 }
@@ -142,15 +142,10 @@ a {
   z-index: 3;
 }
 
-@media screen and (min-width:500px)and (max-width:877px)  {
+@media screen and (max-width:877px)  {
   .product-image-slider--thumbnail-slider .splide{
-      height: 121px;
-  }
-}
-
-@media screen and (max-width:410px){
-  .product-image-slider--thumbnail-slider .splide{
-      height: 100px;
+    height: 150px;
+    width: 100%;
   }
 }
 
