@@ -15,7 +15,7 @@
         <ul class=" custombest-seller-splidelist splide__list">
           {% for product in collections[block.settings.collection_handle].products %}
             <li class=" custom-seller-best-splide--slide  splide__slide">
-              {% render 'product-card', product: product, section_id: section.id %}
+              {% render 'product-card', product: product, section: section %}
             </li>
           {% endfor %}
         </ul>
