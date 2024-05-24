@@ -19,14 +19,15 @@
 
 {% endstyle %}
 
-<custom-featured-product class="custom-featured-product--{{ section.id }} page-width">
+<div class="page-width">
+<custom-featured-product class="custom-featured-product--{{ section.id }}">
     <h1 class="custom-featured-product--heading">Featured Product</h1>
     <div id="custom-featured-product" data-product-url={{section.settings.product.url  }}>
     </div>
 
 
 </custom-featured-product>
-
+</div>
 
 {% schema %}
 {
