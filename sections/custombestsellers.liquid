@@ -4,6 +4,11 @@
   assign current_varient = product.selected_or_first_available_variant
   assign featured_image = current_varient.image | default: product.featured_image
 %}
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 
 <div class="custombest-seller-slide page-width custom-bestseller--{{ section.id }}">
@@ -15,7 +20,7 @@
         <ul class=" custombest-seller-splidelist splide__list">
           {% for product in collections[block.settings.collection_handle].products %}
             <li class=" custom-seller-best-splide--slide  splide__slide">
-              {% render 'product-card', product: product, section: section %}
+              {% render 'product-card', product: product, section_id: section.id, show_quick_add: section.settings.enable_quick_add, %}
             </li>
           {% endfor %}
         </ul>
@@ -75,6 +80,12 @@
       "id": "topheading",
       "label": "Topheading",
       "default": "Best Sellers"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "label": "Quick view",
+      "default": false
     }
   ],
   "blocks": [
