@@ -57,6 +57,11 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "rating_yG4YeB": {
+          "type": "rating",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -68,7 +73,8 @@
         "quantity_selector",
         "description",
         "bundles_xkW8Rf",
-        "buy_buttons"
+        "buy_buttons",
+        "rating_yG4YeB"
       ],
       "settings": {
         "enable_sticky_info": false,
