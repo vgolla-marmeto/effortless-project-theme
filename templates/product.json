@@ -162,12 +162,29 @@
         "padding_top": 30,
         "padding_bottom": 30
       }
+    },
+    "1716815256eceafeac": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6WHz6b": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6WHz6b"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "wizaah_recently_viewed_products_TGCx7U",
     "related-products",
-    "custom_reviews_XafRde"
+    "custom_reviews_XafRde",
+    "1716815256eceafeac"
   ]
 }
