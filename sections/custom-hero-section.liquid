@@ -16,6 +16,22 @@
           padding-bottom: {{ section.settings.padding_bottom }}px;
       }
   }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1500px) {
+    #herosectionslider .splide__pagination {
+        bottom: 20px !important; /* Ensure it is positioned correctly at the bottom */
+        left: 50% !important;
+        transform: translateX(-50%);
+        display: flex !important;
+        justify-content: center !important;
+        width: auto; /* Adjust width if necessary */
+    }
+
+    #herosectionslider .splide__pagination__page {
+        width: 10px !important; /* Adjust size if necessary */
+        height: 10px !important; /* Adjust size if necessary */
+        margin: 0 5px !important; /* Ensure proper spacing */
+    }
+}
 {% endstyle %}
 
 

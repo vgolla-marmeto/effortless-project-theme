@@ -22,7 +22,6 @@ class AccountTabs extends HTMLElement {
             console.log(content);
             container.innerHTML = content.innerHTML;
             window.history.replaceState({}, '', this.path); // 'this' refers to CustomTabs instance
-            console.log("hello");
             setTimeout(() => {
                 this.displayText(eachTab); // Call the displayText method using 'this'
             }, 5000);

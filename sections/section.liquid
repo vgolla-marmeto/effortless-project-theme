@@ -1,0 +1,45 @@
+<section
+    id="thumbnail-carousel"
+    class="splide"
+    aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel."
+  >
+    <div class="splide__track">
+          <ul class="splide__list">
+              <li class="splide__slide">
+                  <p>Hello </p>
+              </li>
+              <li class="splide__slide">
+                <p>Hello </p>
+              </li>
+              <li class="splide__slide">
+                <p>Hello </p>
+              </li>
+          </ul>
+    </div>
+  </section>
+
+<script>
+  document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '#thumbnail-carousel', {
+          fixedWidth: 100,
+          gap       : 10,
+          rewind    : true,
+          pagination: false,
+    } ).mount();
+  } );
+
+  </script>
+
+  {% schema %}
+
+  {
+  "name": "Thumbnail-coursal",
+  "class": "section",
+  "settings": [],
+  "presets": []
+
+}
+
+
+
+  {% endschema %}

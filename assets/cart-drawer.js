@@ -30,6 +30,7 @@ class CartDrawer extends HTMLElement {
     // here the animation doesn't seem to always get triggered. A timeout seem to help
     setTimeout(() => {
       this.classList.add('animate', 'active');
+      this.querySelector('sub-cart-drawer').classList.add('animate', 'active')
     });
 
     this.addEventListener(
@@ -48,7 +49,9 @@ class CartDrawer extends HTMLElement {
   }
 
   close() {
+    this.querySelector('sub-cart-drawer').classList.remove('active')
     this.classList.remove('active');
+    
     removeTrapFocus(this.activeElement);
     document.body.classList.remove('overflow-hidden');
   }
