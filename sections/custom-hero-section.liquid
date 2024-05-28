@@ -68,12 +68,13 @@
         {% for block in section.blocks %}
           <li class="custom-hero-show-splide-slide splide__slide">
            {% if block.settings.desktop_image != blank %}
-              <img
+              {% comment %} <img
                 src="{{ block.settings.desktop_image | image_url }}"
                 alt="Slide Image"
                 height="auto"
                 width="auto"
-              >
+              > {% endcomment %}
+              {% render 'responsive-picture' ,desktopImage:block.settings.desktop_image %}
             {% endif %}
             <div class="custom-herosection-splidecontent slide-content text-position-{{ block.settings.text_position_selector | default: 'center-center' }}">
               {% if block.settings.pre_heading != blank %}
