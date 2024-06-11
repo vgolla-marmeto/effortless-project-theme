@@ -111,6 +111,7 @@
                                       {% assign isOptionOutOfStock = false %}
                                       
                                       {% if current_variant.inventory_quantity == 0 and product_option.selected_value == option_value %}
+                                          {{ product_option.selected_value ,option_value }}
                                           {% assign isOptionOutOfStock = true %}
                                       {% endif %}
                                       
