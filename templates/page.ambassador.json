@@ -423,7 +423,7 @@
           "type": "ratings",
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
-            "customer_name": "Verified Customer",
+            "customer_name": "Verified Customer 1",
             "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
           }
         },
@@ -431,7 +431,7 @@
           "type": "ratings",
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
-            "customer_name": "Verified Customer",
+            "customer_name": "Verified Customer 2",
             "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
           }
         },
@@ -439,7 +439,7 @@
           "type": "ratings",
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
-            "customer_name": "Verified Customer",
+            "customer_name": "Verified Customer 3",
             "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
           }
         }
