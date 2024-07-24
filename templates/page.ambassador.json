@@ -9,13 +9,480 @@
 */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "custom_hero_section_3EEYpV": {
+      "type": "custom-hero-section",
+      "blocks": {
+        "slide_TnTNgC": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/hero_section_2160x_d4904673-1ee6-45d9-bcb6-71d950b96492.webp",
+            "pre_heading": "An Effortless Shopping Experience",
+            "heading_two": "<p> Start Selling More Online <\/p>",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "text_position_selector": "top-left",
+            "desktop_content_allignment": "left"
+          }
+        },
+        "slide_CijM6D": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/hero_section_2160x_1.webp",
+            "pre_heading": "An Effortless Shopping Experience",
+            "heading_two": "<p> Start Selling More Online <\/p>",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "text_position_selector": "Center-left",
+            "desktop_content_allignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_TnTNgC",
+        "slide_CijM6D"
+      ],
       "settings": {
+        "autoplay": false,
+        "show_pagination": true,
+        "show_arrows": false,
+        "auto_play_duration": 2000,
+        "animation": "fade",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_usp_section_wE8WXR": {
+      "type": "custom-usp-section",
+      "blocks": {
+        "column_6RxRzM": {
+          "type": "column",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_14.svg",
+            "title": "Quality",
+            "description": "Exceptional quality from top  to bottom."
+          }
+        },
+        "column_XAFM3k": {
+          "type": "column",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_13.svg",
+            "title": "Delivery",
+            "description": "Fast and free delivery  worldwide."
+          }
+        },
+        "column_4dCUKx": {
+          "type": "column",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_15.svg",
+            "title": "Guarantee",
+            "description": "100% customer satisfaction  guaranteed."
+          }
+        }
+      },
+      "block_order": [
+        "column_6RxRzM",
+        "column_XAFM3k",
+        "column_4dCUKx"
+      ],
+      "settings": {
+        "heading": "Why Choose Effortless?"
+      }
+    },
+    "custom_collections_qdbwpj": {
+      "type": "custom-collections",
+      "blocks": {
+        "featured_collection_YL84TC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-fashion"
+          }
+        },
+        "featured_collection_DfzmNb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-swimwear"
+          }
+        },
+        "featured_collection_NAdX7d": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-innerwear"
+          }
+        },
+        "featured_collection_YyT6LE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens-acessoiries"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_YL84TC",
+        "featured_collection_DfzmNb",
+        "featured_collection_NAdX7d",
+        "featured_collection_YyT6LE"
+      ],
+      "settings": {
+        "color_background": "#ffffff",
+        "title": "Collections",
+        "fontSize": 50,
+        "heading_position": "center",
+        "no_of_blocks_for_desktop": 2,
+        "no_of_blocks_for_mobile": 1,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "custom_featured_product_A3xaw6": {
+      "type": "custom-featured-product",
+      "settings": {
+        "product": "men-slim-fit-casual-shirt",
+        "heading_position": "left",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "custombestsellers_CpJ7CY": {
+      "type": "custombestsellers",
+      "blocks": {
+        "slider_NKrqpr": {
+          "type": "slider",
+          "settings": {
+            "collection_handle": "best-sellers",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_NKrqpr"
+      ],
+      "settings": {
+        "topheading": "Best Sellers",
+        "enable_quick_add": true
+      }
+    },
+    "photo_flex_EgzHVx": {
+      "type": "photo-flex",
+      "blocks": {
+        "block_jTpenn": {
+          "type": "block",
+          "settings": {
+            "image_desktop": "shopify:\/\/shop_images\/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
+            "image_mobile": "shopify:\/\/shop_images\/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
+            "heading": "Built for comfort",
+            "sub_heading": "Bringing you the best of ethically sourced fashion from the best designers",
+            "button_label": "Shop Now",
+            "button_link": ""
+          }
+        },
+        "block_a7GQUH": {
+          "type": "block",
+          "settings": {
+            "image_desktop": "shopify:\/\/shop_images\/Image_1_480x_1.webp",
+            "image_mobile": "shopify:\/\/shop_images\/Image_1_480x_1.webp",
+            "heading": "Better for the planet",
+            "sub_heading": "Committed to sustainability from the ground up. From recycled packaging and fibers.",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_jTpenn",
+        "block_a7GQUH"
+      ],
+      "settings": {
+        "header": "Photo flex section"
+      }
+    },
+    "featured_in_3xBeVj": {
+      "type": "featuredIn",
+      "blocks": {
+        "block_4Uckm8": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
+          }
+        },
+        "block_tYLCjq": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_48_200x_1.webp"
+          }
+        },
+        "block_K7Ry3V": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_47_200x_1.webp"
+          }
+        },
+        "block_wAKBeH": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
+          }
+        },
+        "block_bmaf9y": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_47_200x_1.webp"
+          }
+        },
+        "block_6izjke": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-1_1_720x_1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "block_4Uckm8",
+        "block_tYLCjq",
+        "block_K7Ry3V",
+        "block_wAKBeH",
+        "block_bmaf9y",
+        "block_6izjke"
+      ],
+      "settings": {
+        "rich_text": "<p>Featured In<\/p>",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "custom_reviews_KeBhtA": {
+      "type": "custom-reviews",
+      "blocks": {
+        "ratings_A9YRK4": {
+          "type": "ratings",
+          "settings": {
+            "review": "Modern Clean and easily Customizable",
+            "customer_name": "Verified Customer"
+          }
+        },
+        "ratings_69xwHY": {
+          "type": "ratings",
+          "settings": {
+            "review": "Super fast speed with fully responsive design",
+            "customer_name": "Verified Customer"
+          }
+        },
+        "ratings_QqbLzm": {
+          "type": "ratings",
+          "settings": {
+            "review": "Exceptional Quality and Customer support",
+            "customer_name": "Verified Customer"
+          }
+        },
+        "ratings_NNyMkH": {
+          "type": "ratings",
+          "settings": {
+            "review": "Give your Review Here",
+            "customer_name": "Verified Customer"
+          }
+        },
+        "ratings_w6WkLL": {
+          "type": "ratings",
+          "settings": {
+            "review": "Give your Review Here",
+            "customer_name": "Verified Customer"
+          }
+        },
+        "ratings_bpcyka": {
+          "type": "ratings",
+          "settings": {
+            "review": "Give your Review Here",
+            "customer_name": "Verified Customer"
+          }
+        }
+      },
+      "block_order": [
+        "ratings_A9YRK4",
+        "ratings_69xwHY",
+        "ratings_QqbLzm",
+        "ratings_NNyMkH",
+        "ratings_w6WkLL",
+        "ratings_bpcyka"
+      ],
+      "settings": {
+        "background_Color": "#ffffff",
+        "card_background": "#ffffff",
+        "heading": "Reviews",
+        "heading_color": "#000000",
+        "heading_size": "h1",
+        "show_customer_name": true,
+        "auto_play": true,
+        "show_pagination": true,
+        "show_dots_mobile": true,
+        "show_arrows": false,
+        "auto_play_duration": 2000,
+        "pagination_color": "#000000",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_blog_NdwMxT": {
+      "type": "custom-blog",
+      "settings": {
+        "heading": "Our journal",
+        "heading_size": "h1",
+        "blog": "news",
+        "columns_desktop": 3,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "auto_play": true,
+        "show_pagination": true,
+        "show_arrows": false,
+        "auto_play_duration": 2000
+      }
+    },
+    "custom_slider_with_text_kwJ7Vy": {
+      "type": "custom-slider-with-text",
+      "blocks": {
+        "image_picker_6xibnx": {
+          "type": "image_picker",
+          "settings": {
+            "Image_id": "shopify:\/\/shop_images\/images_3_768x_1.webp",
+            "first_checkbox": true,
+            "first_product": "flower-printed-casual-shirt",
+            "first_hotspot_top_position": 33,
+            "first_hotspot_left_position": 31,
+            "first_card_top_position": 28,
+            "first_card_left_position": 36,
+            "second_checkbox": true,
+            "second_product": "nylon-holdall-bag",
+            "second_hotspot_top_position": 73,
+            "second_hotspot_left_position": 50,
+            "second_card_top_position": 74,
+            "second_card_left_position": 52
+          }
+        },
+        "image_picker_JhtAHT": {
+          "type": "image_picker",
+          "settings": {
+            "Image_id": "shopify:\/\/shop_images\/our-story-group_768x_1.webp",
+            "first_checkbox": true,
+            "first_product": "men-athletic-wear",
+            "first_hotspot_top_position": 21,
+            "first_hotspot_left_position": 28,
+            "first_card_top_position": 30,
+            "first_card_left_position": 30,
+            "second_checkbox": false,
+            "second_product": "",
+            "second_hotspot_top_position": 0,
+            "second_hotspot_left_position": 0,
+            "second_card_top_position": 0,
+            "second_card_left_position": 0
+          }
+        },
+        "image_picker_QWQjAt": {
+          "type": "image_picker",
+          "settings": {
+            "Image_id": "shopify:\/\/shop_images\/our-story_768x_1.webp",
+            "first_checkbox": true,
+            "first_product": "blue-pattern-suit",
+            "first_hotspot_top_position": 28,
+            "first_hotspot_left_position": 15,
+            "first_card_top_position": 30,
+            "first_card_left_position": 17,
+            "second_checkbox": true,
+            "second_product": "shoes-classic-brown",
+            "second_hotspot_top_position": 70,
+            "second_hotspot_left_position": 42,
+            "second_card_top_position": 72,
+            "second_card_left_position": 44
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_6xibnx",
+        "image_picker_JhtAHT",
+        "image_picker_QWQjAt"
+      ],
+      "settings": {
+        "backgrond_color": "#2d2d2d",
+        "heading": "Our Story",
+        "text": "Effortless was designed and developed by leading ecommerce professionals who are passionate about design and user experience, creating intuitive, user-friendly layouts that are optimized for success and sure to delight our customers.",
+        "button_label": "Shop Now",
+        "button_linkEl": "",
+        "auto_play": false,
+        "show_pagination": true,
+        "show_arrows": false,
+        "auto_play_duration": 1000,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_testimonials_7mEnJq": {
+      "type": "custom-testimonials",
+      "blocks": {
+        "ratings_3wRM9Y": {
+          "type": "ratings",
+          "settings": {
+            "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
+            "customer_name": "Verified Customer",
+            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+          }
+        },
+        "ratings_x3hJkX": {
+          "type": "ratings",
+          "settings": {
+            "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
+            "customer_name": "Verified Customer",
+            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+          }
+        },
+        "ratings_EqxBHA": {
+          "type": "ratings",
+          "settings": {
+            "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
+            "customer_name": "Verified Customer",
+            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+          }
+        }
+      },
+      "block_order": [
+        "ratings_3wRM9Y",
+        "ratings_x3hJkX",
+        "ratings_EqxBHA"
+      ],
+      "settings": {
+        "heading": "Reviews",
+        "heading_size": "h1",
+        "show_customer_name": true,
+        "show_pagination": true,
+        "show_dots_mobile": true,
+        "show_arrows": false,
+        "auto_play_duration": 2000,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_email_signup_form_bmCytz": {
+      "type": "custom-email-signup-form",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
-    "main"
+    "custom_hero_section_3EEYpV",
+    "custom_usp_section_wE8WXR",
+    "custom_collections_qdbwpj",
+    "custom_featured_product_A3xaw6",
+    "custombestsellers_CpJ7CY",
+    "photo_flex_EgzHVx",
+    "featured_in_3xBeVj",
+    "custom_reviews_KeBhtA",
+    "custom_blog_NdwMxT",
+    "custom_slider_with_text_kwJ7Vy",
+    "custom_testimonials_7mEnJq",
+    "custom_email_signup_form_bmCytz"
   ]
 }
