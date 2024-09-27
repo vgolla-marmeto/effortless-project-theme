@@ -9,7 +9,7 @@
 */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Effortless_200x_2x_c439dc55-16cf-49cc-b090-c13e76db3ad6.webp",
+    "logo": "shopify://shop_images/Effortless_200x_2x_c439dc55-16cf-49cc-b090-c13e76db3ad6.webp",
     "logo_width": 180,
     "type_header_font": "montserrat_n7",
     "heading_scale": 100,
@@ -107,7 +107,7 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "",
-    "brand_description": "<p><\/p>",
+    "brand_description": "<p></p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -231,19 +231,19 @@
     ],
     "blocks": {
       "5822432907971180753": {
-        "type": "shopify:\/\/apps\/bundle-bear\/blocks\/widget\/8301eac6-7eb6-487c-92f6-ccde92f1db50",
+        "type": "shopify://apps/bundle-bear/blocks/widget/8301eac6-7eb6-487c-92f6-ccde92f1db50",
         "disabled": false,
         "settings": {
         }
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": true,
         "settings": {
         }
       },
       "16477348613150133823": {
-        "type": "shopify:\/\/apps\/unlimited-bundles\/blocks\/script-app-block\/d33d0f48-dee0-42a0-b156-2a5dce91814a",
+        "type": "shopify://apps/unlimited-bundles/blocks/script-app-block/d33d0f48-dee0-42a0-b156-2a5dce91814a",
         "disabled": false,
         "settings": {
           "reload_on_line_item_properties": false,
@@ -252,6 +252,12 @@
           "disable_facebook_events": false,
           "enable_reload_on_bundle_auto_match": false,
           "use_h2_header": false
+        }
+      },
+      "opinew-global-code": {
+        "type": "shopify://apps/opinew-product-reviews-app/blocks/global/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+        "disabled": false,
+        "settings": {
         }
       }
     },
@@ -469,7 +475,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
