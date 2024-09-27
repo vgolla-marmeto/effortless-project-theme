@@ -71,10 +71,16 @@
           "type": "rating",
           "settings": {
           }
+        },
+        "opinew-stars-plugin-product": {
+          "type": "shopify://apps/opinew-reviews/blocks/product-stars/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title",
+        "opinew-stars-plugin-product",
         "price",
         "inventory_3zj4Nk",
         "progress_bar_nMm4gm",
