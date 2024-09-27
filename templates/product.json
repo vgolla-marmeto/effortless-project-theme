@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -167,13 +176,29 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_6WHz6b": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
           }
         }
       },
       "block_order": [
         "judge_me_reviews_review_widget_6WHz6b"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "opinew-reviews-product-page-code": {
+      "type": "apps",
+      "blocks": {
+        "opinew-reviews-widget": {
+          "type": "shopify://apps/opinew-reviews/blocks/product-widget/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "opinew-reviews-widget"
       ],
       "settings": {
         "include_margins": true
@@ -185,6 +210,7 @@
     "wizaah_recently_viewed_products_TGCx7U",
     "related-products",
     "custom_reviews_XafRde",
-    "1716815256eceafeac"
+    "1716815256eceafeac",
+    "opinew-reviews-product-page-code"
   ]
 }
