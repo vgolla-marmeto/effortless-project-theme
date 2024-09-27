@@ -46,7 +46,8 @@
     </a>
   
     <div class="product-card__info">
-     <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a> 
+     <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>
+     <div class='opinew-stars-plugin-product-list'>{% render 'opinew_review_stars_lists' product:product %}</div> 
 <div class="product-card__prices">
   {% if product.price_varies %}
     <span class="product-card__price-amount"> {{ product.price_min | money_with_currency }}</span>
