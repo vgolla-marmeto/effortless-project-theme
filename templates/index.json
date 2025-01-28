@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_hero_section_3EEYpV": {
@@ -6,9 +15,9 @@
         "slide_TnTNgC": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify:\/\/shop_images\/hero_section_2160x_d4904673-1ee6-45d9-bcb6-71d950b96492.webp",
+            "desktop_image": "shopify://shop_images/hero_section_2160x_d4904673-1ee6-45d9-bcb6-71d950b96492.webp",
             "pre_heading": "An Effortless Shopping Experience",
-            "heading_two": "<p> Start Selling More Online <\/p>",
+            "heading_two": "<p> Start Selling More Online </p>",
             "button_label": "Shop Now",
             "button_link": "",
             "text_position_selector": "top-left",
@@ -18,19 +27,31 @@
         "slide_CijM6D": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify:\/\/shop_images\/hero_section_2160x_1.webp",
+            "desktop_image": "shopify://shop_images/hero_section_2160x_1.webp",
             "pre_heading": "An Effortless Shopping Experience",
-            "heading_two": "<p> Start Selling More Online <\/p>",
+            "heading_two": "<p> Start Selling More Online </p>",
             "button_label": "Shop Now",
             "button_link": "",
             "text_position_selector": "Center-left",
+            "desktop_content_allignment": "center"
+          }
+        },
+        "slide_VTgAXJ": {
+          "type": "slide",
+          "settings": {
+            "pre_heading": "An Effortless Shopping Experience",
+            "heading_two": "<p> Start Selling More Online </p>",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "text_position_selector": "center-center",
             "desktop_content_allignment": "center"
           }
         }
       },
       "block_order": [
         "slide_TnTNgC",
-        "slide_CijM6D"
+        "slide_CijM6D",
+        "slide_VTgAXJ"
       ],
       "settings": {
         "autoplay": false,
@@ -42,13 +63,38 @@
         "padding_bottom": 0
       }
     },
+    "173805130680c133e6": {
+      "type": "apps",
+      "blocks": {
+        "whatmore_shoppable_videos_app_block_YehEdt": {
+          "type": "shopify://apps/whatmore-shoppable-videos/blocks/app-block/20db8a72-315a-4364-8885-64219ee48303",
+          "settings": {
+            "heading": "Watch and Buy",
+            "template-type": "template-h",
+            "title-font-size": 40,
+            "title-font-size-portrait": 24,
+            "landscape-padding": 40,
+            "top-bottom-padding": 20,
+            "scroll-video-tile-size": 80,
+            "scroll-video-tile-size-portrait": 80,
+            "min-height": 380
+          }
+        }
+      },
+      "block_order": [
+        "whatmore_shoppable_videos_app_block_YehEdt"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "custom_usp_section_wE8WXR": {
       "type": "custom-usp-section",
       "blocks": {
         "column_6RxRzM": {
           "type": "column",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_14.svg",
+            "image_picker": "shopify://shop_images/svgviewer-output_14.svg",
             "title": "Quality",
             "description": "Exceptional quality from top  to bottom."
           }
@@ -56,7 +102,7 @@
         "column_XAFM3k": {
           "type": "column",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_13.svg",
+            "image_picker": "shopify://shop_images/svgviewer-output_13.svg",
             "title": "Delivery",
             "description": "Fast and free delivery  worldwide."
           }
@@ -64,7 +110,7 @@
         "column_4dCUKx": {
           "type": "column",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/svgviewer-output_15.svg",
+            "image_picker": "shopify://shop_images/svgviewer-output_15.svg",
             "title": "Guarantee",
             "description": "100% customer satisfaction  guaranteed."
           }
@@ -158,8 +204,8 @@
         "block_jTpenn": {
           "type": "block",
           "settings": {
-            "image_desktop": "shopify:\/\/shop_images\/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
-            "image_mobile": "shopify:\/\/shop_images\/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
+            "image_desktop": "shopify://shop_images/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
+            "image_mobile": "shopify://shop_images/Image_970103fd-f443-4353-8f2e-1866bfee17ea_768x_1.webp",
             "heading": "Built for comfort",
             "sub_heading": "Bringing you the best of ethically sourced fashion from the best designers",
             "button_label": "Shop Now",
@@ -169,8 +215,8 @@
         "block_a7GQUH": {
           "type": "block",
           "settings": {
-            "image_desktop": "shopify:\/\/shop_images\/Image_1_480x_1.webp",
-            "image_mobile": "shopify:\/\/shop_images\/Image_1_480x_1.webp",
+            "image_desktop": "shopify://shop_images/Image_1_480x_1.webp",
+            "image_mobile": "shopify://shop_images/Image_1_480x_1.webp",
             "heading": "Better for the planet",
             "sub_heading": "Committed to sustainability from the ground up. From recycled packaging and fibers.",
             "button_label": "Learn More",
@@ -192,37 +238,37 @@
         "block_4Uckm8": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
+            "image": "shopify://shop_images/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
           }
         },
         "block_tYLCjq": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_48_200x_1.webp"
+            "image": "shopify://shop_images/image_48_200x_1.webp"
           }
         },
         "block_K7Ry3V": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_47_200x_1.webp"
+            "image": "shopify://shop_images/image_47_200x_1.webp"
           }
         },
         "block_wAKBeH": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
+            "image": "shopify://shop_images/image_51_200x_c1b1baf3-3455-4751-8367-2f702a631474.webp"
           }
         },
         "block_bmaf9y": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_47_200x_1.webp"
+            "image": "shopify://shop_images/image_47_200x_1.webp"
           }
         },
         "block_6izjke": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/logo-1_1_720x_1.webp"
+            "image": "shopify://shop_images/logo-1_1_720x_1.webp"
           }
         }
       },
@@ -235,7 +281,7 @@
         "block_6izjke"
       ],
       "settings": {
-        "rich_text": "<p>Featured In<\/p>",
+        "rich_text": "<p>Featured In</p>",
         "padding_top": 30,
         "padding_bottom": 30
       }
@@ -336,7 +382,7 @@
         "image_picker_6xibnx": {
           "type": "image_picker",
           "settings": {
-            "Image_id": "shopify:\/\/shop_images\/images_3_768x_1.webp",
+            "Image_id": "shopify://shop_images/images_3_768x_1.webp",
             "first_checkbox": true,
             "first_product": "flower-printed-casual-shirt",
             "first_hotspot_top_position": 33,
@@ -354,7 +400,7 @@
         "image_picker_JhtAHT": {
           "type": "image_picker",
           "settings": {
-            "Image_id": "shopify:\/\/shop_images\/our-story-group_768x_1.webp",
+            "Image_id": "shopify://shop_images/our-story-group_768x_1.webp",
             "first_checkbox": true,
             "first_product": "men-athletic-wear",
             "first_hotspot_top_position": 21,
@@ -372,7 +418,7 @@
         "image_picker_QWQjAt": {
           "type": "image_picker",
           "settings": {
-            "Image_id": "shopify:\/\/shop_images\/our-story_768x_1.webp",
+            "Image_id": "shopify://shop_images/our-story_768x_1.webp",
             "first_checkbox": true,
             "first_product": "blue-pattern-suit",
             "first_hotspot_top_position": 28,
@@ -415,7 +461,7 @@
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
             "customer_name": "Verified Customer",
-            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+            "customer_image": "shopify://shop_images/Rectangle_78.webp"
           }
         },
         "ratings_x3hJkX": {
@@ -423,7 +469,7 @@
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
             "customer_name": "Verified Customer",
-            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+            "customer_image": "shopify://shop_images/Rectangle_78.webp"
           }
         },
         "ratings_EqxBHA": {
@@ -431,7 +477,7 @@
           "settings": {
             "review": "As an industry expert with deep knowledge and understanding of this space. I cannot say enough good things about this company and their products as they are modern, clean, with sophisticated designs, quality materials and top-level support.",
             "customer_name": "Verified Customer",
-            "customer_image": "shopify:\/\/shop_images\/Rectangle_78.webp"
+            "customer_image": "shopify://shop_images/Rectangle_78.webp"
           }
         }
       },
@@ -464,6 +510,7 @@
   },
   "order": [
     "custom_hero_section_3EEYpV",
+    "173805130680c133e6",
     "custom_usp_section_wE8WXR",
     "custom_collections_qdbwpj",
     "custom_featured_product_A3xaw6",
