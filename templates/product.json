@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -14,13 +14,15 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
+        },
+        "opinew-stars-plugin-product": {
+          "type": "shopify://apps/opinew-reviews/blocks/product-stars/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "inventory_3zj4Nk": {
           "type": "inventory",
@@ -45,13 +47,11 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "bundles_xkW8Rf": {
           "type": "bundles",
@@ -69,13 +69,7 @@
         },
         "rating_yG4YeB": {
           "type": "rating",
-          "settings": {
-          }
-        },
-        "opinew-stars-plugin-product": {
-          "type": "shopify://apps/opinew-reviews/blocks/product-stars/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -105,6 +99,28 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "173813518385bfc1a6": {
+      "type": "apps",
+      "blocks": {
+        "bundler_custom_bundle_An6ecU": {
+          "type": "shopify://apps/bundler/blocks/custom-bundle/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {
+            "shortcode": ""
+          }
+        },
+        "bundler_bundler_target_element_7cA6Uy": {
+          "type": "shopify://apps/bundler/blocks/bundler-target-element/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bundler_custom_bundle_An6ecU",
+        "bundler_bundler_target_element_7cA6Uy"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "wizaah_recently_viewed_products_TGCx7U": {
@@ -183,8 +199,7 @@
       "blocks": {
         "judge_me_reviews_review_widget_6WHz6b": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -199,8 +214,7 @@
       "blocks": {
         "opinew-reviews-widget": {
           "type": "shopify://apps/opinew-reviews/blocks/product-widget/e1d8e0dc-17ff-4e4a-8a8a-1e73c8ef8676",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -213,6 +227,7 @@
   },
   "order": [
     "main",
+    "173813518385bfc1a6",
     "wizaah_recently_viewed_products_TGCx7U",
     "related-products",
     "custom_reviews_XafRde",
