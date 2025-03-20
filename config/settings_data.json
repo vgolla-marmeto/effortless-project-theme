@@ -269,6 +269,11 @@
           "video-title": "",
           "use-variant": "false"
         }
+      },
+      "11320579242087869063": {
+        "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
