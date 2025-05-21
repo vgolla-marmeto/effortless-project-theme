@@ -612,15 +612,19 @@
             "video_url_2": "https://www.youtube.com/watch?v=WUOMaci3wjM&list=RDWUOMaci3wjM&start_radio=1",
             "video_title_2": "",
             "video_description_2": "",
+            "video_thumbnail_2": "shopify://shop_images/Rectangle114686.png",
             "video_url_3": "https://www.youtube.com/watch?v=WUOMaci3wjM&list=RDWUOMaci3wjM&start_radio=1",
             "video_title_3": "",
             "video_description_3": "",
+            "video_thumbnail_3": "shopify://shop_images/Frame_1000008487.png",
             "video_url_4": "https://www.youtube.com/watch?v=WUOMaci3wjM&list=RDWUOMaci3wjM&start_radio=1",
             "video_title_4": "",
             "video_description_4": "",
+            "video_thumbnail_4": "shopify://shop_images/Frame_1000008509_2.png",
             "video_url_5": "https://www.youtube.com/watch?v=WUOMaci3wjM&list=RDWUOMaci3wjM&start_radio=1",
             "video_title_5": "",
-            "video_description_5": ""
+            "video_description_5": "",
+            "video_thumbnail_5": "shopify://shop_images/Rectangle5452_1.png"
           },
           "blocks": {}
         }
