@@ -50,7 +50,7 @@
                     <a class="tw-underline" href="{{ product.url }}" class="tw-text-inherit tw-font-[normal] tw-no-underline hover:tw-underline focus:tw-underline" aria-current="page" >{{ product.title }}</a>
                 </li>
 
-            {% when 'collection' and collection.handle %}
+            {% when 'collection' %}
                 {% if current_tags %}
                 <li class="tw-inline-block">{{ collection.title | link_to: collection.url }}</li>
                 <li class="tw-inline-block">
@@ -93,4 +93,13 @@
 
     </ul>
     </nav>
-{% endunless %}
+{% endunless %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% when 'collection' and collection.handle %}"
+  to: "{% when 'collection' %}"
+  position: 1782..1805
+{%- endcomment -%}

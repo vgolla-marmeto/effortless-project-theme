@@ -1,4 +1,4 @@
-{% assign current_variant = product.selected_or_first_available_variant %}
+{% if section and section.location != blank %}{% assign current_variant = product.selected_or_first_available_variant %}
 {% if current_variant.featured_image != blank %}
   {% assign variant_featured_image = current_variant.featured_image %}
 {% else %}
@@ -82,4 +82,209 @@
         {% endunless %}
     </div>
 
-</custom-product-card>
+</custom-product-card>{% else %}{% assign current_variant = product.selected_or_first_available_variant %}
+{% if current_variant.featured_image != blank %}
+  {% assign variant_featured_image = current_variant.featured_image %}
+{% else %}
+  {% assign variant_featured_image = product.featured_image %}
+{% endif %}
+
+{% style %}
+
+.product-card-item{
+    min-height:400px;
+    background-size:cover;
+}
+.image-elemnt{
+    width:100%;
+}
+.product-card-info{
+    text-align:center;
+}
+
+{% endstyle %}
+
+<custom-product-card class="product-card-item" data-handle="{{ product.handle }}">
+    <img src='{{ variant_featured_image | image_url }}' width="auto" height="auto" class="image-elemnt">
+    <div class="product-card-info item-swatch">
+            <!-- Badges  using tags -->
+
+        {% for tag in product.tags %}
+            {% if tag contains 'badge--' %}
+             <span class="badge">{{ tag | split:"badge--" | last }}</span>
+            {% endif %}
+        {% endfor %}
+        <!-- using metafields -->
+        {% for tag in product.metafields.custom.custom_badge.value %}
+            <span class="badge">{{ tag }}</span>
+
+        {% endfor %}
+
+        {%- if card_product_variant.available == false -%}
+            <span
+              class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+            >
+              {{- 'products.product.sold_out' | t -}}
+            </span>
+      
+          {% elsif card_product_variant.price < card_product_variant.compare_at_price %}
+            <span
+              class="badge badge--top-left color-{{ settings.sale_badge_color_scheme }}"
+            >
+              {% assign price_diff = current_variant.compare_at_price | minus: current_variant.price %}
+              {{price_diff }} %off
+            </span>
+          {% endif %}
+
+        <p class="product-card-title">{{ product.title }}</p>
+        <p class="product-card-vendor">{{ product.vendor }}</p>
+        {% for option in product.options_with_values %}
+            {% if option.name.color or option.name.Color %}
+                {% for value in option.values %}
+                    <input
+                      id="custom_variant_radio--{{ forloop.index }}"
+                      name="{{ option.name }}"
+                      type="radio"
+                      value="{{ value }}"
+                      data-variant-id={{ current_variant.id }}
+                    >
+                    <label for="custom_variant_radio--{{ forloop.index }}" data-value={{ value }}>{{ value }}</label>
+                  {% endfor %}
+            {% endif %}
+
+        {% endfor %} 
+         {% unless product.has_only_default_variant %}
+            <div class="field mt-1">
+                <select name="options-change">
+                    {% for variant in product.variants %}
+                        <option value={{ variant.id }} {% if current_variant.id == variant.id %} selected {% endif %}>{{ variant.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% else %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {% endunless %}
+    </div>
+
+</custom-product-card>{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% assign current_variant = product.selected_or_first_available_variant %}\n{%
+    if current_variant.featured_image != blank %}\n  {% assign variant_featured_image
+    = current_variant.featured_image %}\n{% else %}\n  {% assign variant_featured_image
+    = product.featured_image %}\n{% endif %}\n\n{% style %}\n\n.product-card-item{\n
+    \   min-height:400px;\n    background-size:cover;\n}\n.image-elemnt{\n    width:100%;\n}\n.product-card-info{\n
+    \   text-align:center;\n}\n\n{% endstyle %}\n\n<custom-product-card class=\"product-card-item\"
+    data-handle=\"{{ product.handle }}\">\n    <img src='{{ variant_featured_image
+    | image_url }}' width=\"auto\" height=\"auto\" class=\"image-elemnt\">\n    <div
+    class=\"product-card-info item-swatch\">\n            <!-- Badges  using tags
+    -->\n\n        {% for tag in product.tags %}\n            {% if tag contains 'badge--'
+    %}\n             <span class=\"badge\">{{ tag | split:\"badge--\" | last }}</span>\n
+    \           {% endif %}\n        {% endfor %}\n        <!-- using metafields -->\n
+    \       {% for tag in product.metafields.custom.custom_badge.value %}\n            <span
+    class=\"badge\">{{ tag }}</span>\n\n        {% endfor %}\n\n        {%- if card_product_variant.available
+    == false -%}\n            <span\n              class=\"badge badge--bottom-left
+    color-{{ settings.sold_out_badge_color_scheme }}\"\n            >\n              {{-
+    'products.product.sold_out' | t -}}\n            </span>\n      \n          {%
+    elsif card_product_variant.price < card_product_variant.compare_at_price %}\n
+    \           <span\n              class=\"badge badge--top-left color-{{ settings.sale_badge_color_scheme
+    }}\"\n            >\n              {% assign price_diff = current_variant.compare_at_price
+    | minus: current_variant.price %}\n              {{price_diff }} %off\n            </span>\n
+    \         {% endif %}\n\n        <p class=\"product-card-title\">{{ product.title
+    }}</p>\n        <p class=\"product-card-vendor\">{{ product.vendor }}</p>\n        {%
+    for option in product.options_with_values %}\n            {% if option.name==\"color\"
+    or option.name==\"Color\" %}\n                {% for value in option.values %}\n
+    \                   <input\n                      id=\"custom_variant_radio--{{
+    forloop.index }}\"\n                      name=\"{{ option.name }}\"\n                      type=\"radio\"\n
+    \                     value=\"{{ value }}\"\n                      data-variant-id={{
+    current_variant.id }}\n                    >\n                    <label for=\"custom_variant_radio--{{
+    forloop.index }}\" data-value={{ value }}>{{ value }}</label>\n                  {%
+    endfor %}\n            {% endif %}\n\n        {% endfor %} \n         {% unless
+    product.has_only_default_variant %}\n            <div class=\"field mt-1\">\n
+    \               <select name=\"options-change\">\n                    {% for variant
+    in product.variants %}\n                        <option value={{ variant.id }}
+    {% if current_variant.id == variant.id %} selected {% endif %}>{{ variant.title
+    }}</option>\n                    {% endfor %}\n                </select>\n            </div>\n
+    \           {% else %}\n            <input type=\"hidden\" name=\"id\" value=\"{{
+    current_variant.id }}\">\n        {% endunless %}\n    </div>\n\n</custom-product-card>"
+  to: "{% if section and section.location != blank %}{% assign current_variant = product.selected_or_first_available_variant
+    %}\n{% if current_variant.featured_image != blank %}\n  {% assign variant_featured_image
+    = current_variant.featured_image %}\n{% else %}\n  {% assign variant_featured_image
+    = product.featured_image %}\n{% endif %}\n\n{% style %}\n\n.product-card-item{\n
+    \   min-height:400px;\n    background-size:cover;\n}\n.image-elemnt{\n    width:100%;\n}\n.product-card-info{\n
+    \   text-align:center;\n}\n\n{% endstyle %}\n\n<custom-product-card class=\"product-card-item\"
+    data-handle=\"{{ product.handle }}\">\n    <img src='{{ variant_featured_image
+    | image_url }}' width=\"auto\" height=\"auto\" class=\"image-elemnt\">\n    <div
+    class=\"product-card-info item-swatch\">\n            <!-- Badges  using tags
+    -->\n\n        {% for tag in product.tags %}\n            {% if tag contains 'badge--'
+    %}\n             <span class=\"badge\">{{ tag | split:\"badge--\" | last }}</span>\n
+    \           {% endif %}\n        {% endfor %}\n        <!-- using metafields -->\n
+    \       {% for tag in product.metafields.custom.custom_badge.value %}\n            <span
+    class=\"badge\">{{ tag }}</span>\n\n        {% endfor %}\n\n        {%- if card_product_variant.available
+    == false -%}\n            <span\n              class=\"badge badge--bottom-left
+    color-{{ settings.sold_out_badge_color_scheme }}\"\n            >\n              {{-
+    'products.product.sold_out' | t -}}\n            </span>\n      \n          {%
+    elsif card_product_variant.price < card_product_variant.compare_at_price %}\n
+    \           <span\n              class=\"badge badge--top-left color-{{ settings.sale_badge_color_scheme
+    }}\"\n            >\n              {% assign price_diff = current_variant.compare_at_price
+    | minus: current_variant.price %}\n              {{price_diff }} %off\n            </span>\n
+    \         {% endif %}\n\n        <p class=\"product-card-title\">{{ product.title
+    }}</p>\n        <p class=\"product-card-vendor\">{{ product.vendor }}</p>\n        {%
+    for option in product.options_with_values %}\n            {% if option.name==\"color\"
+    or option.name==\"Color\" %}\n                {% for value in option.values %}\n
+    \                   <input\n                      id=\"custom_variant_radio--{{
+    forloop.index }}\"\n                      name=\"{{ option.name }}\"\n                      type=\"radio\"\n
+    \                     value=\"{{ value }}\"\n                      data-variant-id={{
+    current_variant.id }}\n                    >\n                    <label for=\"custom_variant_radio--{{
+    forloop.index }}\" data-value={{ value }}>{{ value }}</label>\n                  {%
+    endfor %}\n            {% endif %}\n\n        {% endfor %} \n         {% unless
+    product.has_only_default_variant %}\n            <div class=\"field mt-1\">\n
+    \               <select name=\"options-change\">\n                    {% for variant
+    in product.variants %}\n                        <option value={{ variant.id }}
+    {% if current_variant.id == variant.id %} selected {% endif %}>{{ variant.title
+    }}</option>\n                    {% endfor %}\n                </select>\n            </div>\n
+    \           {% else %}\n            <input type=\"hidden\" name=\"id\" value=\"{{
+    current_variant.id }}\">\n        {% endunless %}\n    </div>\n\n</custom-product-card>{%
+    else %}{% assign current_variant = product.selected_or_first_available_variant
+    %}\n{% if current_variant.featured_image != blank %}\n  {% assign variant_featured_image
+    = current_variant.featured_image %}\n{% else %}\n  {% assign variant_featured_image
+    = product.featured_image %}\n{% endif %}\n\n{% style %}\n\n.product-card-item{\n
+    \   min-height:400px;\n    background-size:cover;\n}\n.image-elemnt{\n    width:100%;\n}\n.product-card-info{\n
+    \   text-align:center;\n}\n\n{% endstyle %}\n\n<custom-product-card class=\"product-card-item\"
+    data-handle=\"{{ product.handle }}\">\n    <img src='{{ variant_featured_image
+    | image_url }}' width=\"auto\" height=\"auto\" class=\"image-elemnt\">\n    <div
+    class=\"product-card-info item-swatch\">\n            <!-- Badges  using tags
+    -->\n\n        {% for tag in product.tags %}\n            {% if tag contains 'badge--'
+    %}\n             <span class=\"badge\">{{ tag | split:\"badge--\" | last }}</span>\n
+    \           {% endif %}\n        {% endfor %}\n        <!-- using metafields -->\n
+    \       {% for tag in product.metafields.custom.custom_badge.value %}\n            <span
+    class=\"badge\">{{ tag }}</span>\n\n        {% endfor %}\n\n        {%- if card_product_variant.available
+    == false -%}\n            <span\n              class=\"badge badge--bottom-left
+    color-{{ settings.sold_out_badge_color_scheme }}\"\n            >\n              {{-
+    'products.product.sold_out' | t -}}\n            </span>\n      \n          {%
+    elsif card_product_variant.price < card_product_variant.compare_at_price %}\n
+    \           <span\n              class=\"badge badge--top-left color-{{ settings.sale_badge_color_scheme
+    }}\"\n            >\n              {% assign price_diff = current_variant.compare_at_price
+    | minus: current_variant.price %}\n              {{price_diff }} %off\n            </span>\n
+    \         {% endif %}\n\n        <p class=\"product-card-title\">{{ product.title
+    }}</p>\n        <p class=\"product-card-vendor\">{{ product.vendor }}</p>\n        {%
+    for option in product.options_with_values %}\n            {% if option.name.color
+    or option.name.Color %}\n                {% for value in option.values %}\n                    <input\n
+    \                     id=\"custom_variant_radio--{{ forloop.index }}\"\n                      name=\"{{
+    option.name }}\"\n                      type=\"radio\"\n                      value=\"{{
+    value }}\"\n                      data-variant-id={{ current_variant.id }}\n                    >\n
+    \                   <label for=\"custom_variant_radio--{{ forloop.index }}\" data-value={{
+    value }}>{{ value }}</label>\n                  {% endfor %}\n            {% endif
+    %}\n\n        {% endfor %} \n         {% unless product.has_only_default_variant
+    %}\n            <div class=\"field mt-1\">\n                <select name=\"options-change\">\n
+    \                   {% for variant in product.variants %}\n                        <option
+    value={{ variant.id }} {% if current_variant.id == variant.id %} selected {% endif
+    %}>{{ variant.title }}</option>\n                    {% endfor %}\n                </select>\n
+    \           </div>\n            {% else %}\n            <input type=\"hidden\"
+    name=\"id\" value=\"{{ current_variant.id }}\">\n        {% endunless %}\n    </div>\n\n</custom-product-card>{%
+    endif %}"
+  position: 0..6369
+{%- endcomment -%}

@@ -1,2 +1,13 @@
 {% layout none %} 
- {% render 'product-card', product: product,section_id: {{section.id}}, show_quick_add: {{section.settings.enable_quick_add}} %}
+ {% render 'product-card', product: product, section_id: section.id, show_quick_add: section.settings.enable_quick_add %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-card', product: product,section_id: {{section.id}}, show_quick_add:
+    {{section.settings.enable_quick_add}} %}"
+  to: "{% render 'product-card', product: product, section_id: section.id, show_quick_add:
+    section.settings.enable_quick_add %}"
+  position: 20..140
+{%- endcomment -%}
